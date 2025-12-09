@@ -1,0 +1,128 @@
+/* tipografia */
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&display=swap');
+
+h1,
+h2,
+.titulo {
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+p,
+.texto {
+    font-family: "Cardo", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* cores */
+:root {
+    --vermelho: #740211;
+    --borda-alaranjada: #FF6B35;
+    --amarelo: #F2C14E;
+    --verde: #003F47;
+    --preto: #0D0D11;
+    --azul: #0A1A2F;
+    --branco: #FFFFFF;
+}
+
+/* estilo padrão */
+.cor-titulo {
+    color: var(--amarelo);
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    text-shadow:
+        0 0 6px var(--borda-alaranjada),
+        0 2px 4px var(--preto);
+}
+
+
+
+/* animação quando abre o site */
+.offcanvas.offcanvas-top {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border: none;
+    overflow: auto;
+}
+
+.offcanvas.offcanvas-top .offcanvas-body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--azul);
+}
+/* conteudo do index */
+.index-bg{
+    background-image: url('/assets/img-fundo.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* página: Selecionar os Personagens */
+
+/* card carousel */
+.seta-carrossel img{
+    height: 15em;
+}
+
+
+.carousel-container,
+.container,
+#containerCardPadrao {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.carousel-card {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    gap: 0.5rem;
+
+    overflow-x: auto;
+
+    padding: 1rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.card {
+    /*  flex: 0 0 15.063em; */
+    flex: 0 0 clamp(12.56em, 14vw, 15.063em);
+    width: 11em;
+    height: 45vh;
+    scroll-snap-align: start;
+    background-color: transparent;
+    transition: transform .25s ease;
+
+}
+
+.card img,
+.col img {
+    width: clamp(12.56em, 14vw, 15.063em);
+    max-width: 100%;
+    height: 45dvh;
+    object-fit: cover;
+}
+
+/* demais card com col */
+.col {
+    height: 45dvh;
+}
