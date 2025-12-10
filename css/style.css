@@ -57,8 +57,9 @@ p,
     padding: 2rem;
     background-color: var(--azul);
 }
+
 /* conteudo do index */
-.index-bg{
+.index-bg {
     background-image: url('/assets/img-fundo.png');
     background-size: cover;
     background-position: center center;
@@ -67,9 +68,25 @@ p,
 }
 
 /* página: Selecionar os Personagens */
+.bg-selecionarPersonagens {
+    background-image: url('/assets/img-fundo-guerreiros.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* página: Selecionar Adversarios */
+.bg-selecionarAdversarios {
+    background-image: url('/assets/img-fundo-adversarios.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 
 /* card carousel */
-.seta-carrossel img{
+.seta-carrossel img {
     height: 15em;
 }
 
@@ -126,3 +143,91 @@ p,
 .col {
     height: 45dvh;
 }
+
+
+/* página: Com os dois oponentes */
+.bg-Oponente {
+    background-image: url('/assets/img-fundo-tema-jogo.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.espada {
+    max-width: 100%;
+    width: 2em;
+    height: 10em;
+}
+
+/* página: combate */
+.bg-combate {
+    background-image: url('/assets/img-fundo-combate.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.log-combate {
+    width: 25em;
+    height: 23em;
+    background-color: #000;
+    border-radius: 35px;
+}
+
+.img-dado {
+    max-width: 100%;
+    width: 50%;
+}
+
+/* card de combate */
+.card-combate {
+    background-color: var(--verde);
+    width: 15em;
+    height: 25em;
+}
+
+.imagem-jogador {
+    max-width: 100%;
+    width: 75%;
+}
+
+.card-combate_secao-info {
+    max-width: 100%;
+    width: 100%;
+}
+
+.card-combate-info--bg-verde {
+    background-color: var(--verde);
+    color: var(--amarelo);
+}
+
+.card-combate-info--bg-amarelo {
+    background-color: var(--amarelo);
+    color: var(--preto);
+}
+
+/* modal */
+/* .bg-modal {
+    width: 100%;
+    background-image: url('/assets/modal.png');
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: transparent; 
+}
+
+.bg-modal.has-bg-image::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: inherit;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.12; 
+    pointer-events: none;
+}
+
+.modal-content.bg-modal{ position: relative; overflow: visible; } */

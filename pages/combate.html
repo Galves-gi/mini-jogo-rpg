@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DragonTower - Combate</title>
+
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <!-- modal -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        aivar modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+            <div class="modal-content bg-modal">
+
+                <div class="modal-header">
+
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Mensagem do Modal</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+
+                <div class="modal-body">
+                    ...
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-success btn-ver-log" aria-label="Ver log da partida" tabindex="0">Ver log</button>
+
+                    <a type="button" class="btn btn-danger" href="/index.html" aria-label="Botão para sair dessa página e ser redirecionado para a página selecionar personagens"  role="button" tabindex="0">Jogar De Novo</a>
+
+                    <a type="button" class="btn btn-dark" data-bs-dismiss="modal" href="/index.html" aria-label="Botão para sair do jogo"  role="button" tabindex="0">Sair</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <main class="d-flex flex-column align-items-center vh-100 bg-black bg-combate">
+
+        <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
+
+            <!-- cards com os personagens selecionados -->
+            <article class="d-flex justify-content-center align-content-center w-100 h-100 gap-3">
+
+                <!-- card combate -->
+                <div
+                    class="card-combate d-flex flex-column justify-content-center align-content-center align-self-center">
+                    <!-- imagem do personagem -->
+                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
+
+                    <!-- seção de informações -->
+                    <div class="d-flex flex-wrap justify-content-center align-content-center card-combate_secao-info">
+                        <!-- hp -->
+                        <div class="d-flex flex-column justify-content-center align-content-center">
+                            <h3 class="card-combate-info--bg-verde">Hp</h3>
+                            <h4 class="card-combate-info--bg-amarelo">16</h4>
+                        </div>
+                        <!-- AC -->
+                        <div class="d-flex flex-column justify-content-center align-content-center">
+                            <h3 class="card-combate-info--bg-verde">Ac</h3>
+                            <h4 class="card-combate-info--bg-amarelo">14</h4>
+                        </div>
+                        <!-- ATk -->
+                        <div class="d-flex flex-column justify-content-center align-content-center gap-0 p-0 m-0">
+                            <h3 class="card-combate-info--bg-verde">Atk</h3>
+                            <h4 class="card-combate-info--bg-amarelo">2D6+4</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-content-center log-combate align-self-center"
+                    aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
+                    <h5 class="cor-titulo m-3 p-3 text-start w-100">Log da partida</h5>
+
+                    <img src="/assets/dado-6.gif" alt="dado para o combate" class="img-dado align-self-center">
+
+                </div>
+
+                <!-- card combate -->
+                <div
+                    class="card-combate d-flex flex-column justify-content-center align-content-center align-self-center">
+                    <!-- imagem do personagem -->
+                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
+
+                    <!-- seção de informações -->
+                    <div class="d-flex flex-wrap justify-content-center align-content-center card-combate_secao-info">
+                        <!-- hp -->
+                        <div class="d-flex flex-column justify-content-center align-content-center">
+                            <h3 class="card-combate-info--bg-verde">Hp</h3>
+                            <h4 class="card-combate-info--bg-amarelo">16</h4>
+                        </div>
+                        <!-- AC -->
+                        <div class="d-flex flex-column justify-content-center align-content-center">
+                            <h3 class="card-combate-info--bg-verde">Ac</h3>
+                            <h4 class="card-combate-info--bg-amarelo">14</h4>
+                        </div>
+                        <!-- ATk -->
+                        <div class="d-flex flex-column justify-content-center align-content-center gap-0 p-0 m-0">
+                            <h3 class="card-combate-info--bg-verde">Atk</h3>
+                            <h4 class="card-combate-info--bg-amarelo">2D6+4</h4>
+                        </div>
+
+                    </div>
+                </div>
+
+            </article>
+            <!-- botões -->
+            <div class="d-flex justify-content-center align-content-center">
+                <button class="btn btn-danger w-25 mx-auto d-block mt-4 p-3"
+                    aria-label="botão para atacar seu adversario" tabindex="0">
+                    <h3>Atacar</h3>
+                </button>
+
+                <button class="btn btn-danger w-25 mx-auto d-block mt-4 p-3"
+                    aria-label="botão para curar seu personagem" tabindex="0">
+                    <h3>Curar</h3>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/js/funcionalidade.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
