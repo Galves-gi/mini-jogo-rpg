@@ -26,26 +26,36 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 
             <div class="modal-content bg-modal">
-
-                <div class="modal-header">
-
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Mensagem do Modal</h1>
+                <!-- cabeçalho do modal -->
+                <div class="modal-header" style="border-bottom: 0px;">
 
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                 </div>
+                <!-- caixa de mensagem do modal -->
+                <div class="modal-body" aria-live="polite">
 
-                <div class="modal-body">
-                    ...
+                    <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel" aria-live="polite">Mensagem do
+                        Modal</h1>
+
+                    <p class="w-auto h-50 text-center">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime in culpa doloribus rem
+                        architecto excepturi repellat vitae inventore deserunt? Possimus nostrum ipsum ducimus odio?
+                        Dolores asperiores quos alias consequuntur natus.
+                    </p>
                 </div>
-
+                <!-- botões do modal -->
                 <div class="modal-footer">
 
-                    <button type="button" class="btn btn-success btn-ver-log" aria-label="Ver log da partida" tabindex="0">Ver log</button>
+                    <button type="button" id="logPartida" class="btn btn-success btn-ver-log"
+                        aria-label="Ver log da partida" tabindex="0">Log da Partida</button>
 
-                    <a type="button" class="btn btn-danger" href="/index.html" aria-label="Botão para sair dessa página e ser redirecionado para a página selecionar personagens"  role="button" tabindex="0">Jogar De Novo</a>
+                    <a type="button" id="jogarDeNovo" class="btn btn-danger" href="/index.html"
+                        aria-label="Botão para sair dessa página e ser redirecionado para a página selecionar personagens"
+                        role="button" tabindex="0">Jogar De Novo</a>
 
-                    <a type="button" class="btn btn-dark" data-bs-dismiss="modal" href="/index.html" aria-label="Botão para sair do jogo"  role="button" tabindex="0">Sair</a>
+                    <a type="button" id="Sair" class="btn btn-dark" data-bs-dismiss="modal" href="/index.html"
+                        aria-label="Botão para sair do jogo" role="button" tabindex="0">Sair</a>
                 </div>
 
             </div>
@@ -139,6 +149,13 @@
         </section>
 
     </main>
+    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+    <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
+        <div class="mensagemTelaDeitada-texto">
+            <h1 class="cor-titulo text-center">DragonTower</h1>
+            <p>Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
+        </div>
+    </article>
 
 
     <script src="/js/funcionalidade.js"></script>

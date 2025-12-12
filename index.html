@@ -14,39 +14,54 @@
 
 <body>
 
-     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-        aria-controls="offcanvasTop">só para ativar(teste)</button>
-    
+<!--     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+        aria-controls="offcanvasTop">só para ativar(teste)</button> -->
+
     <!-- animação de abertura -->
-    <section class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" aria-label="Animação com o nome 'DragonTower' com fundo azul escuro ">
+    <section class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
+        aria-label="Animação com o nome 'DragonTower' com fundo azul escuro ">
 
         <div class="offcanvas-body">
-            
+
             <h1 class="cor-titulo text-center">DragonTower</h1>
 
         </div>
     </section>
 
 
-    <main class="d-flex justify-content-center align-items-center vh-100 index-bg">
+    <main class="d-flex justify-content-center align-items-center vh-100 bg-index">
 
         <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
 
-            <h1 class="text-center cor-titulo">DragonTower</h1>
-
-            <p class="text-center text-light fs-5 mt-5 mb-5">
-                A vila de Valdorin está à beira da destruição. Desde que os dragões tomaram a fortaleza próxima, tempestades anômalas, rachaduras mágicas e criaturas enlouquecidas têm surgido por toda parte.
+            <h1 class="text-center cor-titulo display-3">DragonTower</h1>
+            <!-- texto -->
+            <p class="text-center text-light my-3 my-md-5 px-5">
+                A vila de Valdorin está à beira da destruição. Desde que os dragões tomaram a fortaleza próxima,
+                tempestades anômalas, rachaduras mágicas e criaturas enlouquecidas têm surgido por toda parte.
                 <br>
                 Conquiste a torre. Derrote os dragões. Reescreva seu destino.
             </p>
+            <!-- botão iniciar aventura -->
+            <a class="btn btn-padrao btn-vermelho w-25 mx-auto mt-4 mt-md-5 px-4 py-2 px-md-5 py-md-3"
+                aria-label="Botão para iniciar o jogo" href="/pages/selecionarPersonagens.html">
 
-            <a class="btn btn-danger w-25 mx-auto d-block mt-4 p-3" aria-label="Botão para iniciar o jogo" href="/pages/selecionarPersonagens.html">
-                <h3>Iniciar Aventura</h3>
+                <img src="/assets/img-btn.svg" alt="" class="btn-img-top">
+                <span class="btn-texto">Iniciar Aventura</span>
+                <img src="/assets/img-btn.svg" alt="" class="btn-img-bottom">
+
             </a>
 
         </section>
 
     </main>
+
+    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+    <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
+        <div class="mensagemTelaDeitada-texto">
+            <h1 class="cor-titulo text-center">DragonTower</h1>
+            <p>Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
+        </div>
+    </article>
 
 
     <script src="/js/funcionalidade.js"></script>

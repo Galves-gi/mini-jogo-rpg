@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teste — Mobile landscape only</title>
+
+  <!-- Fontes: Inter (títulos) e Cardo (texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== Mobile-first: estilos base (mobile portrait) ====== */
+    :root{
+      --bg: #ffffff;
+      --fg: #111111;
+      --accent: #0a84ff;
+      --container-padding: 16px;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: 'Cardo', serif; /* texto */
+      background: var(--bg);
+      color: var(--fg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:calc(var(--container-padding));
+      box-sizing:border-box;
+    }
+
+    .app{
+      width:100%;
+      max-width:1000px; /* desktop will naturally use the same styles unless overridden */
+    }
+
+    header h1{
+      font-family: 'Inter', system-ui, sans-serif; /* títulos */
+      font-weight:700;
+      font-size:1.6rem;
+      margin:0 0 8px 0;
+    }
+
+    .card{
+      background: #f6f6f6;
+      padding:16px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .grid{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .row{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    button{
+      font-family: 'Inter', system-ui, sans-serif;
+      padding:10px 14px;
+      border-radius:10px;
+      border:0;
+      background:var(--accent);
+      color:white;
+      cursor:pointer;
+    }
+
+    /* ====== Mensagem que aparece só em portrait (pequenos dispositivos) ====== */
+    .portrait-overlay{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.5);
+      color:white;
+      text-align:center;
+      padding:20px;
+      z-index:9999;
+      visibility:hidden;
+      opacity:0;
+      transition:opacity .25s ease, visibility .25s ease;
+      pointer-events:none;
+    }
+
+    .portrait-overlay.show{
+      visibility:visible;
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .portrait-card{
+      background:rgba(255,255,255,0.06);
+      padding:18px;
+      border-radius:12px;
+      max-width:420px;
+      backdrop-filter: blur(6px);
+    }
+
+    .portrait-card h2{font-family:'Inter';margin:0 0 8px 0;font-size:1.2rem}
+    .portrait-card p{margin:0;font-size:0.95rem}
+
+    /* ====== Estilos ESPECIAIS para celulares deitados (landscape) ======
+       - limitamos por max-width para evitar que tablets/desktops entrem
+       - aplica apenas quando orientation: landscape e largura <= 768px
+    */
+    @media (max-width: 768px) and (orientation: landscape) {
+      :root{
+        --bg: #0f1724; /* exemplo: fundo escuro em landscape */
+        --fg: #f5f5f7;
+      }
+
+      body{
+        align-items:center;
+      }
+
+      .app{
+        max-width:900px;
+      }
+
+      .card{
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.04);
+        padding:20px;
+      }
+
+      .grid{
+        flex-direction:row; /* ex: conteúdo lado a lado em landscape */
+      }
+
+      .grid > *{flex:1}
+
+      header h1{font-size:1.8rem}
+    }
+
+    /* ====== Desktop (larguras maiores): mantêm o estilo base
+       - não precisa declarar nada se você quer que desktop fique "normal"
+       - porém podemos ajustar levemente com um breakpoint > 1024px
+    */
+    @media (min-width: 1024px) {
+      body{padding:32px}
+      .card{padding:24px}
+      header h1{font-size:2rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Página de teste — Mobile-first</h1>
+      <p>Estilo base para mobile (portrait). Se o celular estiver deitado, aplica estilos dentro da media query.</p>
+    </header>
+
+    <main style="margin-top:12px">
+      <div class="card grid">
+        <div>
+          <h3 style="margin:0;font-family:Inter,system-ui,sans-serif">Bloco 1</h3>
+          <p>Conteúdo 1 — usado para demonstrar empilhamento em portrait e layout lado-a-lado em landscape.</p>
+        </div>
+
+        <div>
+          <h3 style="margin:0;font-family:Inter,system-ui,sans-serif">Bloco 2</h3>
+          <p>Conteúdo 2 — mais informações aqui.</p>
+          <div style="margin-top:10px" class="row">
+            <span>Estado</span>
+            <button id="btnDemo">Ação</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+  <div id="mensagemTelaDeitada" class="portrait-overlay" aria-hidden="true">
+    <div class="portrait-card">
+      <h2>Vire o aparelho</h2>
+      <p>Para melhor experiência, coloque o celular deitado (paisagem).</p>
+    </div>
+  </div>
+
+  <script>
+
+    (function(){
+      const sobreposicao = document.getElementById('mensagemTelaDeitada');
+
+      // Verifica se devemos mostrar o overlay de retrato:
+      // retorna true quando o dispositivo está em retrato e a largura é pequena
+      function deveMostrarSobreposicao(){
+        const emRetrato = window.matchMedia('(orientation: portrait)').matches;
+        const pequeno = window.matchMedia('(max-width: 768px)').matches;
+        return emRetrato && pequeno;
+      }
+
+      // Atualiza a visibilidade do overlay com base na condição
+      function atualizarSobreposicao(){
+        if (deveMostrarSobreposicao()){
+          sobreposicao.classList.add('show');
+          sobreposicao.setAttribute('aria-hidden','false');
+        } else {
+          sobreposicao.classList.remove('show');
+          sobreposicao.setAttribute('aria-hidden','true');
+        }
+      }
+
+      // Executa ao carregar a página
+      atualizarSobreposicao();
+
+      // Atualiza quando a orientação ou o tamanho mudam
+      window.addEventListener('resize', atualizarSobreposicao);
+      window.addEventListener('orientationchange', atualizarSobreposicao);
+
+    })();
+  </script>
+</body>
+</html>

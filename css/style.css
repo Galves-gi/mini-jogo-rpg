@@ -15,6 +15,7 @@ p,
     font-family: "Cardo", serif;
     font-weight: 400;
     font-style: normal;
+    font-size: clamp(1em, 2vw, 3em);
 }
 
 /* cores */
@@ -28,6 +29,53 @@ p,
     --branco: #FFFFFF;
 }
 
+html {
+  scrollbar-color: #A0A0A0 #000;
+  scrollbar-width: thin; 
+}
+
+body {
+  scrollbar-width: thin;
+  box-sizing: border-box;
+}
+
+
+
+/* Mensagem para celulares que aparece só em portrait (retrato)*/
+.mensagemTelaDeitada {
+    position: fixed;
+    inset: 0;
+    /* reset */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--azul);
+    color: white;
+    padding: 20px;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .25s ease, visibility .25s ease;
+    pointer-events: none;
+}
+
+.mensagemTelaDeitada.ativar {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mensagemTelaDeitada-texto {
+    padding: 18px;
+    max-width: 420px;
+}
+
+.mensagemTelaDeitada-texto p {
+    margin: 1em 0 0 0;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
 /* estilo padrão */
 .cor-titulo {
     color: var(--amarelo);
@@ -37,6 +85,73 @@ p,
         0 0 6px var(--borda-alaranjada),
         0 2px 4px var(--preto);
 }
+
+.btn-vermelho {
+    background: linear-gradient(145deg, #740211 7%, #DA0420 45%, #9B0317 100%);
+}
+
+.btn-verde {
+    background: linear-gradient(145deg, #003F47 7%, #0C4D55 45%, #003F47 100%);
+}
+
+.btn-preto {
+    background: linear-gradient(145deg, #202024 7%, #17171B 45%, #0D0D11 100%);
+}
+
+.btn-padrao {
+    color: var(--amarelo);
+    border: none;
+    width: 100%;
+    width: clamp(180px, 80vw, 340px);
+    padding: 0px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+
+    transition: transform .15s ease,
+        filter .15s ease,
+        background-color .15s ease;
+}
+
+.btn-padrao:hover {
+    color: var(--amarelo);
+    filter: brightness(1.08);
+    box-shadow: 0 6px 18px rgba(96, 93, 94, 0.55);
+    transform: translateY(-1px);
+}
+
+.btn-padrao:active, .btn-vermelho:active, .btn-verde:active {
+    color: var(--amarelo); 
+    transform: scale(0.96);
+    filter: brightness(0.85);
+    box-shadow: 0 2px 6px rgba(83, 80, 81, 0.4);
+}
+
+.btn-padrao span {
+    padding: 0;
+    margin: 0;
+}
+
+/* Imagens do botão */
+.btn-img-top,
+.btn-img-bottom {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -59,12 +174,17 @@ p,
 }
 
 /* conteudo do index */
-.index-bg {
+.bg-index {
     background-image: url('/assets/img-fundo.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 100vh;
+}
+
+.bg-index section {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
 }
 
 /* página: Selecionar os Personagens */
