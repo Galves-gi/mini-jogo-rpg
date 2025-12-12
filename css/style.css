@@ -1,5 +1,5 @@
 /* tipografia */
-@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=carrossel-cardo:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400..900&display=swap');
 
 h1,
 h2,
@@ -12,7 +12,7 @@ h2,
 
 p,
 .texto {
-    font-family: "Cardo", serif;
+    font-family: "carrossel-cardo", serif;
     font-weight: 400;
     font-style: normal;
     font-size: clamp(1em, 2vw, 3em);
@@ -30,13 +30,13 @@ p,
 }
 
 html {
-  scrollbar-color: #A0A0A0 #000;
-  scrollbar-width: thin; 
+    scrollbar-color: #A0A0A0 #000;
+    scrollbar-width: thin;
 }
 
 body {
-  scrollbar-width: thin;
-  box-sizing: border-box;
+    scrollbar-width: thin;
+    box-sizing: border-box;
 }
 
 
@@ -104,7 +104,7 @@ body {
     width: 100%;
     width: clamp(180px, 80vw, 340px);
     padding: 0px;
-    border-radius: 12px;
+    margin: 0;
     cursor: pointer;
     text-align: center;
 
@@ -125,35 +125,30 @@ body {
     transform: translateY(-1px);
 }
 
-.btn-padrao:active, .btn-vermelho:active, .btn-verde:active {
-    color: var(--amarelo); 
+.btn-padrao:active,
+.btn-vermelho:active,
+.btn-verde:active {
+    color: var(--amarelo);
     transform: scale(0.96);
     filter: brightness(0.85);
     box-shadow: 0 2px 6px rgba(83, 80, 81, 0.4);
 }
 
-.btn-padrao span {
+.btn-padrao span,
+.btn-padrao_texto {
+    max-width: 100%;
     padding: 0;
     margin: 0;
+    font-size: clamp(0.6em, 0.3em + 1vw, 2.5em);
 }
 
 /* Imagens do botão */
-.btn-img-top,
-.btn-img-bottom {
+.btn-padrao_img-top,
+.btn-padrao_img-bottom {
     width: 100%;
-    max-width: 180px;
+    max-width: 300px;
     height: auto;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* animação quando abre o site */
 .offcanvas.offcanvas-top {
@@ -175,7 +170,7 @@ body {
 
 /* conteudo do index */
 .bg-index {
-    background-image: url('/assets/img-fundo.png');
+    background-image: url('/assets/img-fundo-tema-jogo.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -205,15 +200,14 @@ body {
     min-height: 100vh;
 }
 
-/* card carousel */
+/* carrossel-card carousel */
 .seta-carrossel img {
-    height: 15em;
+    height: 10em;
+    max-height: 15em;
 }
 
 
-.carousel-container,
-.container,
-#containerCardPadrao {
+.carrossel-container {
     position: relative;
     width: 100%;
     margin: auto;
@@ -223,9 +217,9 @@ body {
 }
 
 
-.carousel-card {
+.carrossel-container_carrossel-cards {
     width: 100%;
-    height: auto;
+    max-height: 100%;
 
     display: flex;
     gap: 0.5rem;
@@ -240,28 +234,29 @@ body {
     scrollbar-width: none;
 }
 
-.card {
+.carrossel-card {
     /*  flex: 0 0 15.063em; */
     flex: 0 0 clamp(12.56em, 14vw, 15.063em);
     width: 11em;
-    height: 45vh;
+    height: 100%;
+    max-height: 60vh;
     scroll-snap-align: start;
-    background-color: transparent;
+
+    background-image: url('/assets/moldura.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
     transition: transform .25s ease;
 
 }
 
-.card img,
-.col img {
-    width: clamp(12.56em, 14vw, 15.063em);
+.carrossel-card img {
+    width: clamp(8em, 10vw, 10em);
     max-width: 100%;
-    height: 45dvh;
+    height: auto;
     object-fit: cover;
-}
-
-/* demais card com col */
-.col {
-    height: 45dvh;
+    align-self: center;
 }
 
 
@@ -301,8 +296,8 @@ body {
     width: 50%;
 }
 
-/* card de combate */
-.card-combate {
+/* carrossel-card de combate */
+.carrossel-card-combate {
     background-color: var(--verde);
     width: 15em;
     height: 25em;
@@ -313,17 +308,17 @@ body {
     width: 75%;
 }
 
-.card-combate_secao-info {
+.carrossel-card-combate_secao-info {
     max-width: 100%;
     width: 100%;
 }
 
-.card-combate-info--bg-verde {
+.carrossel-card-combate-info--bg-verde {
     background-color: var(--verde);
     color: var(--amarelo);
 }
 
-.card-combate-info--bg-amarelo {
+.carrossel-card-combate-info--bg-amarelo {
     background-color: var(--amarelo);
     color: var(--preto);
 }

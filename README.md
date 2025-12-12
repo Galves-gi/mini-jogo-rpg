@@ -23,7 +23,7 @@ Este repositório contém um protótipo de um sistema de combate por turnos (pla
 ### 2.2 Tipografia
 
 - **Cinzel (700 – Bold)** — usada para títulos, labels e headers.
-- **Cardo (400 – Regular)** — aplicada em textos corridos, narrativa e descrições.
+- **carrossel-cardo (400 – Regular)** — aplicada em textos corridos, narrativa e descrições.
 
 ## Arquitetura das Telas
 

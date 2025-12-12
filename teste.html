@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teste — Mobile landscape only</title>
 
-  <!-- Fontes: Inter (títulos) e Cardo (texto) -->
-  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fontes: Inter (títulos) e carrossel-cardo (texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=carrossel-cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     /* ====== Mobile-first: estilos base (mobile portrait) ====== */
@@ -20,7 +20,7 @@
     html,body{height:100%;}
     body{
       margin:0;
-      font-family: 'Cardo', serif; /* texto */
+      font-family: 'carrossel-cardo', serif; /* texto */
       background: var(--bg);
       color: var(--fg);
       -webkit-font-smoothing:antialiased;
@@ -44,7 +44,7 @@
       margin:0 0 8px 0;
     }
 
-    .card{
+    .carrossel-card{
       background: #f6f6f6;
       padding:16px;
       border-radius:12px;
@@ -98,7 +98,7 @@
       pointer-events:auto;
     }
 
-    .portrait-card{
+    .portrait-carrossel-card{
       background:rgba(255,255,255,0.06);
       padding:18px;
       border-radius:12px;
@@ -106,8 +106,8 @@
       backdrop-filter: blur(6px);
     }
 
-    .portrait-card h2{font-family:'Inter';margin:0 0 8px 0;font-size:1.2rem}
-    .portrait-card p{margin:0;font-size:0.95rem}
+    .portrait-carrossel-card h2{font-family:'Inter';margin:0 0 8px 0;font-size:1.2rem}
+    .portrait-carrossel-card p{margin:0;font-size:0.95rem}
 
     /* ====== Estilos ESPECIAIS para celulares deitados (landscape) ======
        - limitamos por max-width para evitar que tablets/desktops entrem
@@ -127,7 +127,7 @@
         max-width:900px;
       }
 
-      .card{
+      .carrossel-card{
         background: rgba(255,255,255,0.04);
         border: 1px solid rgba(255,255,255,0.04);
         padding:20px;
@@ -148,7 +148,7 @@
     */
     @media (min-width: 1024px) {
       body{padding:32px}
-      .card{padding:24px}
+      .carrossel-card{padding:24px}
       header h1{font-size:2rem}
     }
   </style>
@@ -161,7 +161,7 @@
     </header>
 
     <main style="margin-top:12px">
-      <div class="card grid">
+      <div class="carrossel-card grid">
         <div>
           <h3 style="margin:0;font-family:Inter,system-ui,sans-serif">Bloco 1</h3>
           <p>Conteúdo 1 — usado para demonstrar empilhamento em portrait e layout lado-a-lado em landscape.</p>
@@ -181,7 +181,7 @@
 
   <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
   <div id="mensagemTelaDeitada" class="portrait-overlay" aria-hidden="true">
-    <div class="portrait-card">
+    <div class="portrait-carrossel-card">
       <h2>Vire o aparelho</h2>
       <p>Para melhor experiência, coloque o celular deitado (paisagem).</p>
     </div>

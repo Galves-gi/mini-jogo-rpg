@@ -16,66 +16,45 @@
 
     <main class="d-flex flex-column align-items-center vh-100 bg-black bg-selecionarPersonagens">
 
-        <h3 class="cor-titulo m-3 p-3 text-start w-100">Escolhe seu Personagem</h3>
+        <h3 class="cor-titulo m-0 p-0 pt-3 ps-5 text-start w-100">Escolhe seu Personagem</h3>
 
-        <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
+        <!-- carrossel-cards carousel-->
+        <article class="carrossel-container my-2">
 
-            <!-- cards carousel-->
-            <article class="carousel-container my-2">
+            <button class="btn border border-0 seta-carrossel" aria-label="botão para voltar os carrossel-cards do carrossel">
+                <img src="/assets/seta-voltar.png" alt="seta para mudar os carrossel-cards do carrossel (esquerdo)" srcset="">
+            </button>
 
-                <button class="btn border border-0 seta-carrossel" aria-label="botão para voltar os cards do carrossel">
-                    <img src="/assets/seta-voltar.png" alt="seta para mudar os cards do carrossel" srcset="">
-                </button>
+            <div class="carrossel-container_carrossel-cards" id="containercarrossel-cardCarrosselLancamentoCartaz">
 
-                <div class="carousel-card" id="containerCardCarrosselLancamentoCartaz">
-
-                    <div class="card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
+                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center">
+                    <img src="/assets/favicon.png" alt="" srcset="">
+                    <div>
+                        <h2>Nome</h2>
+                        <h3>HP: <span>14</span></h3>
+                        <h3>Ac: <span>14</span></h3>
+                        <h3>Atk: <span>2D6+4</span></h3>
                     </div>
-
-                    <div class="card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
                 </div>
 
-                <button class="btn border border-0 seta-carrossel"
-                    aria-label="botão para ver o próximo cards do carrossel">
-                    <img src="/assets/seta-prox.png" alt="seta para mudar os cards do carrossel" srcset="">
-                </button>
+            </div>
+
+            <button class="btn border border-0 seta-carrossel" aria-label="botão para ver o próximo carrossel-cards do carrossel">
+                <img src="/assets/seta-prox.png" alt="seta para mudar os carrossel-cards do carrossel (direito)" srcset="">
+            </button>
 
 
-            </article>
+        </article>
 
+        <!-- botão para mudar de página -->
+        <a class="btn btn-padrao btn-vermelho w-25 mx-auto mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-3"
+            aria-label="botão com redirecionamento para a pagina de iniciar aventura" href="/pages/doisOponentes.html">
 
-            <a class="btn btn-danger w-25 mx-auto d-block mt-4 p-3" href="/pages/doisOponentes.html"
-                aria-label="botão com redirecionamento para a pagina de iniciar aventura" tabindex="0">
-                <h3>Próximo</h3>
-            </a>
+            <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
+            <span class="btn-padrao_texto titulo">Próximo</span>
+            <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-bottom">
 
-        </section>
+        </a>
 
     </main>
 

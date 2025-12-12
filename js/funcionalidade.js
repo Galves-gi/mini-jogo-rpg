@@ -1,23 +1,19 @@
 /* responsividade */
-(function(){
-    const sobreposicao = document.getElementById('mensagemTelaDeitada')
+const sobreposicao = document.getElementById('mensagemTelaDeitada')
 
-    // Verifica se mostra o "mensagemTelaDeitada":
-    // retorna true quando o dispositivo está em retrato e a largura é pequena(menor do que 768px)
-    function deveMostrarSobreposicao(){
-        const emRetrato = window.matchMedia('(orientation: portrait)').matches
-        const pequeno = window.matchMedia('(max-width: 768px)').matches
-        return emRetrato && pequeno
-    }
+// retorna true quando o dispositivo está em retrato e a largura é pequena(menor do que 768px)
+function deveMostrarSobreposicao() {
+  return window.matchMedia('(orientation: portrait)').matches;
+}
 
-    // Observa a posição da tela
-    function atualizarSobreposicao(){
-        if (deveMostrarSobreposicao()){
-          sobreposicao.classList.add('ativar')
-        } else {
-          sobreposicao.classList.remove('ativar')
-        }
-      }
+// Observa a posição da tela
+function atualizarSobreposicao(){
+  if (deveMostrarSobreposicao()){
+    sobreposicao.classList.add('ativar')
+  } else {
+    sobreposicao.classList.remove('ativar')
+  }
+}
 
 // Executa ao carregar a página
 atualizarSobreposicao()
@@ -26,7 +22,7 @@ atualizarSobreposicao()
 window.addEventListener('resize', atualizarSobreposicao)
 window.addEventListener('orientationchange', atualizarSobreposicao)
 
-})()
+
 
 /* animação inicial */
 document.addEventListener("DOMContentLoaded", function () {
@@ -37,4 +33,12 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         offcanvas.hide()
     }, 3000)
-});
+
+    document.getElementById('offcanvasTop').addEventListener('hidden.bs.offcanvas', function () {
+        const backdrop = document.querySelector('.offcanvas-backdrop');
+        if (backdrop) {
+            backdrop.remove();
+        }
+    });
+
+})
