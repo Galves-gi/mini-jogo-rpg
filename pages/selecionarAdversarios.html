@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DragonTower - Adversários</title>
+    <title>DragonTower - Adversário</title>
 
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -16,66 +16,138 @@
 
     <main class="d-flex flex-column align-items-center vh-100 bg-black bg-selecionarAdversarios">
 
-        <h3 class="cor-titulo m-3 p-3 text-start w-100">Escolhe seu Adversário</h3>
+        <h3 class="cor-titulo m-0 p-0 pt-3 ps-5 text-start w-100">Escolhe seu Adversário</h3>
 
-        <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
+        <!-- carrossel-cards carousel-->
+        <article class="carrossel-container my-2">
 
-            <!-- carrossel-cards carousel-->
-            <article class="carrossel-container my-2">
+            <button class="btn border border-0 seta-carrossel botao-voltar"
+                aria-label="botão para voltar os carrossel-cards do carrossel">
+                <img src="/assets/seta-voltar.png" alt="seta para mudar os carrossel-cards do carrossel (esquerdo)"
+                    srcset="">
+            </button>
 
-                <button class="btn border border-0 seta-carrossel" aria-label="botão para voltar os carrossel-cards do carrossel">
-                    <img src="/assets/seta-voltar.png" alt="seta para mudar os carrossel-cards do carrossel" srcset="">
-                </button>
+            <div class="carrossel-container_cards" id="containercarrossel-card">
 
-                <div class="carrossel-container_carrossel-cards" id="containercarrossel-cardCarrosselLancamentoCartaz">
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
 
-                    <div class="carrossel-card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
                     </div>
-
-                    <div class="carrossel-card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="carrossel-card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="carrossel-card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
-                    <div class="carrossel-card">
-                        <a href="#">
-                            <img src="/assets/moldura.png" alt="">
-                        </a>
-                    </div>
-
                 </div>
 
-                <button class="btn border border-0 seta-carrossel"
-                    aria-label="botão para ver o próximo carrossel-cards do carrossel" tabindex="0">
-                    <img src="/assets/seta-prox.png" alt="seta para mudar os carrossel-cards do carrossel" srcset="">
-                </button>
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
+
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
+
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
+
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
+
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
+
+                <div class="carrossel-card carrossel-card--adversario d-flex flex-column justify-content-center align-content-center"
+                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
+                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/favicon.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
+                    </div>
+                </div>
 
 
-            </article>
+            </div>
+
+            <button class="btn border border-0 seta-carrossel botao-prox"
+                aria-label="botão para ver o próximo carrossel-cards do carrossel">
+                <img src="/assets/seta-prox.png" alt="seta para mudar os carrossel-cards do carrossel (direito)"
+                    srcset="">
+            </button>
 
 
-            <a class="btn btn-danger w-25 mx-auto d-block mt-4 p-3"
-                aria-label="Botão de seguir para a pagina de combate" href="/pages/doisOponentes.html">
-                <h3>Próximo</h3>
-            </a>
+        </article>
 
-        </section>
+        <!-- botão para mudar de página -->
+        <a class="btn btn-padrao btn-vermelho w-25 mx-auto mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1"
+            aria-label="botão com redirecionamento para a pagina de iniciar aventura" href="/pages/doisOponentes.html">
+
+            <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
+            <span class="btn-padrao_texto titulo">Próximo</span>
+            <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-bottom">
+
+        </a>
 
     </main>
 

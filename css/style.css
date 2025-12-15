@@ -210,23 +210,27 @@ body {
 .carrossel-container {
     position: relative;
     width: 100%;
-    margin: auto;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-.carrossel-container_carrossel-cards {
+.carrossel-container_cards {
     width: 100%;
-    max-height: 100%;
+    height: 65vh;
 
     display: flex;
+    align-items: center;
     gap: 0.5rem;
 
     overflow-x: auto;
 
-    padding: 1rem;
+    padding: 0rem;
+    padding-inline: 1rem;
+
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-behavior: smooth;
@@ -235,20 +239,49 @@ body {
 }
 
 .carrossel-card {
-    /*  flex: 0 0 15.063em; */
-    flex: 0 0 clamp(12.56em, 14vw, 15.063em);
-    width: 11em;
-    height: 100%;
-    max-height: 60vh;
+    flex: 0 0 100%;
+    max-width: 150px;
+
+    aspect-ratio: 3 / 4;
+    padding: 0.5em;
+    border: 3px solid black;
+    border-radius: 10px;
     scroll-snap-align: start;
 
-    background-image: url('/assets/moldura.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+    background: var(--azul);
+    cursor: pointer;
+
+
+    /*     background-image: url('/assets/moldura.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; */
 
     transition: transform .25s ease;
+}
 
+.carrossel-container_cards-personagens {
+    padding-left: calc(50% - 140px);
+    justify-content: center;
+    align-items: center;
+}
+
+.carrossel-card:active {
+    border: 3px solid #F2C14E;
+}
+
+.carrossel-card--adversario {
+    background: var(--vermelho);
+}
+
+.carrossel-card div h5 {
+    font-size: clamp(0.6em, 0.3em + 1vw, 2.3em);
+    font-weight: bold;
+}
+
+.carrossel-card div h5 span {
+    font-size: clamp(0.6em, 0.3em + 1vw, 2em);
+    font-weight: normal;
 }
 
 .carrossel-card img {
@@ -346,3 +379,45 @@ body {
 }
 
 .modal-content.bg-modal{ position: relative; overflow: visible; } */
+
+/* desativar hover */
+@media (hover: hover) {
+    /* segunda e terceira página */
+
+    .carrossel-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+/*segunda e terceira página  */
+@media (min-width: 1024px) {
+    .carrossel-container_cards {
+        height: 65vh;
+        align-items: center;
+    }
+
+    .carrossel-container_cards-personagens {
+        padding-left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carrossel-card {
+        flex: 0 0 75%;
+        max-width: 220px;
+        height: 75%;
+        align-items: center;
+        background-size: cover;
+    }
+
+
+    .carrossel-card div h5 {
+        font-size: clamp(0.5em, 0.1em + 0.8vw, 2.2em);
+        font-weight: bold;
+    }
+
+    .carrossel-card div h5 span {
+        font-size: clamp(0.6em, 0.1em + 1vw, 2em);
+        font-weight: normal;
+    }
+}

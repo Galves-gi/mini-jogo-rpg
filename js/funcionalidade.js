@@ -22,7 +22,7 @@ atualizarSobreposicao()
 window.addEventListener('resize', atualizarSobreposicao)
 window.addEventListener('orientationchange', atualizarSobreposicao)
 
-
+//---------------------------------------------------------------------------------
 
 /* animação inicial */
 document.addEventListener("DOMContentLoaded", function () {
@@ -42,3 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 })
+
+
+//---------------------------------------------------------------------------------
+
+const carrosseis = document.querySelectorAll(".carrossel-container")
+
+carrosseis.forEach(container =>{
+    const carouselCard = container.querySelector(".carrossel-container_cards")
+    const botaoVoltar = container.querySelector(".botao-voltar")
+    const botaoProx = container.querySelector(".botao-prox")
+
+    botaoVoltar.addEventListener('click', ()=>{
+        carouselCard.scrollLeft -= 300
+    })
+
+    botaoProx.addEventListener('click', ()=>{
+        carouselCard.scrollLeft += 300
+    })
+
+})
+
+//---------------------------------------------------------------------------------

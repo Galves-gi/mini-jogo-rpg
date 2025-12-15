@@ -21,33 +21,86 @@
         <!-- carrossel-cards carousel-->
         <article class="carrossel-container my-2">
 
-            <button class="btn border border-0 seta-carrossel" aria-label="botão para voltar os carrossel-cards do carrossel">
-                <img src="/assets/seta-voltar.png" alt="seta para mudar os carrossel-cards do carrossel (esquerdo)" srcset="">
+            <button class="btn border border-0 seta-carrossel botao-voltar"
+                aria-label="botão para voltar os carrossel-cards do carrossel">
+                <img src="/assets/seta-voltar.png" alt="seta para mudar os carrossel-cards do carrossel (esquerdo)"
+                    srcset="">
             </button>
 
-            <div class="carrossel-container_carrossel-cards" id="containercarrossel-cardCarrosselLancamentoCartaz">
+            <div class="carrossel-container_cards carrossel-container_cards-personagens" id="containercarrossel-card">
 
-                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center">
-                    <img src="/assets/favicon.png" alt="" srcset="">
-                    <div>
-                        <h2>Nome</h2>
-                        <h3>HP: <span>14</span></h3>
-                        <h3>Ac: <span>14</span></h3>
-                        <h3>Atk: <span>2D6+4</span></h3>
+                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center" data-id="1"
+                    data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14" data-ataque-dice="2D6+4"
+                    data-ataque="Flecha Explosiva" data-dano="7">
+
+                    <img src="/assets/Lyra Althea.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">Lyra Althea</h3>
+                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
                     </div>
                 </div>
 
+                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center" data-id="2"
+                    data-nome="Sombrax" data-classe="Bardo Sombrio" data-vida="18" data-ac="13"
+                    data-ataque-dice="1D12+3" data-ataque="Riff do Abismo" data-dano="9">
+
+                    <img src="/assets/Sombrax.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">Sombrax</h3>
+                        <h5 class="m-0 p-0">HP: <span>18</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>13</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>1D12+3</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Riff do Abismo - 9pts</span></h5>
+                    </div>
+                </div>
+
+
+                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center" data-id="3"
+                    data-nome="Elion Velion" data-classe="Mago" data-vida="12" data-ac="12" data-ataque-dice="2D8+2"
+                    data-ataque="Orbe Arcano" data-dano="10">
+
+                    <img src="/assets/Elion Velion.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">Elion Velion</h3>
+                        <h5 class="m-0 p-0">HP: <span>12</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>12</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D8+2</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Orbe Arcano - 10pts</span></h5>
+                    </div>
+                </div>
+
+
+                <div class="carrossel-card d-flex flex-column justify-content-center align-content-center" data-id="4"
+                    data-nome="Asálux Lumiel" data-classe="Ser Divino" data-vida="22" data-ac="16"
+                    data-ataque-dice="2D10+5" data-ataque="Luz Celestial" data-dano="14">
+
+                    <img src="/assets/Asálux Lumiel.png" alt="">
+                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
+                        <h3 class="m-0 p-0 fs-5 text-center">Asálux Lumiel</h3>
+                        <h5 class="m-0 p-0">HP: <span>22</span></h5>
+                        <h5 class="m-0 p-0">AC: <span>16</span></h5>
+                        <h5 class="m-0 p-0">AtkDice: <span>2D10+5</span></h5>
+                        <h5 class="m-0 p-0">Atk: <span>Luz Celestial - 14pts</span></h5>
+                    </div>
+                </div>
+
+
             </div>
 
-            <button class="btn border border-0 seta-carrossel" aria-label="botão para ver o próximo carrossel-cards do carrossel">
-                <img src="/assets/seta-prox.png" alt="seta para mudar os carrossel-cards do carrossel (direito)" srcset="">
+            <button class="btn border border-0 seta-carrossel botao-prox"
+                aria-label="botão para ver o próximo carrossel-cards do carrossel">
+                <img src="/assets/seta-prox.png" alt="seta para mudar os carrossel-cards do carrossel (direito)"
+                    srcset="">
             </button>
 
 
         </article>
 
         <!-- botão para mudar de página -->
-        <a class="btn btn-padrao btn-vermelho w-25 mx-auto mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-3"
+        <a class="btn btn-padrao btn-vermelho w-25 mx-auto mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1"
             aria-label="botão com redirecionamento para a pagina de iniciar aventura" href="/pages/doisOponentes.html">
 
             <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
