@@ -324,43 +324,75 @@ body {
     min-height: 100vh;
 }
 
+/* LOG */
 .log-combate {
-    width: 25em;
-    height: 23em;
-    background-color: #000;
-    border-radius: 35px;
-}
-
-.img-dado {
-    max-width: 100%;
-    width: 50%;
-}
-
-/* carrossel-card de combate */
-.carrossel-card-combate {
-    background-color: var(--verde);
     width: 15em;
-    height: 25em;
+    height: 12rem;
+
+    background-color: #000;
+    border-radius: 1.25rem;
+
+    padding: 0.8em;
 }
 
+.log-combate h5 {
+    font-size: clamp(0.8em, 0.8em + 1vw, 2.3em);
+    max-height: 5em;
+    overflow-y: auto;
+}
+
+/* Dado */
+.img-dado {
+    width:100%;
+    max-width: 180px;
+}
+
+/* card de combate */
+.carrossel-card-combate {
+    width: 10em;
+    height: 15em;
+
+    padding: 0;
+    margin: 0;
+}
+
+/* Imagem do jogador*/
 .imagem-jogador {
-    max-width: 100%;
-    width: 75%;
+    width: 95%;
+    max-width: 250px;
+    padding: 0;
+    margin: 0;
 }
 
-.carrossel-card-combate_secao-info {
-    max-width: 100%;
-    width: 100%;
+/* seção informações */
+.carrossel-card-combate_secao-info div h3 {
+    font-size: clamp(0.8em, 1em + 1vw, 2.3em);
+    font-weight: bold;
+}
+
+.carrossel-card-combate_secao-info div h4 {
+    font-size: clamp(0.8em, 0.8em + 1vw, 2.3em);
 }
 
 .carrossel-card-combate-info--bg-verde {
     background-color: var(--verde);
     color: var(--amarelo);
 }
+.carrossel-card-combate-info--bg-vermelho {
+    background-color: var(--vermelho);
+    color: var(--amarelo);
+}
 
 .carrossel-card-combate-info--bg-amarelo {
     background-color: var(--amarelo);
     color: var(--preto);
+}
+
+.icon-botao {
+    position: absolute;
+    left: -25px;
+    top: -10px;
+    width: 40%;
 }
 
 /* modal */
@@ -396,8 +428,33 @@ body {
     }
 }
 
-/*segunda e terceira página  */
+
+@media (min-width: 900px) {
+
+    /* página combate */
+    .log-combate {
+        width: 25em;
+        height: 20em;
+    }
+
+    .img-dado {
+        width: 100%;
+    }
+
+    .carrossel-card-combate {
+        width: 15em;
+        height: 20em;
+    }
+
+    .imagem-jogador {
+        width: 100%;
+    }
+}
+
+
 @media (min-width: 1024px) {
+
+    /*segunda e terceira página  */
     .carrossel-container_cards {
         height: 65vh;
         align-items: center;

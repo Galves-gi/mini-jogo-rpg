@@ -15,9 +15,9 @@
 <body>
     <!-- modal -->
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!--     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         aivar modal
-    </button>
+    </button> -->
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -62,91 +62,120 @@
         </div>
     </div>
 
-    <main class="d-flex flex-column align-items-center vh-100 bg-black bg-combate">
+    <main class="d-flex flex-column justify-content-center align-items-center w-100 h-100 m-0 bg-black bg-combate">
 
-        <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
+        <!-- carrossel-cards com os personagens selecionados -->
+        <article class="d-flex justify-content-center align-content-center w-100 h-100 gap-3">
 
-            <!-- carrossel-cards com os personagens selecionados -->
-            <article class="d-flex justify-content-center align-content-center w-100 h-100 gap-3">
-
-                <!-- carrossel-card combate -->
+            <!-- carrossel-card combate -->
+            <div
+                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0">
+                <!-- imagem do personagem -->
                 <div
-                    class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center">
-                    <!-- imagem do personagem -->
-                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
+                    class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-verde">
+                    <img src="/assets/Asálux Lumiel.png" alt="imagem do jogador"
+                        class="imagem-jogador align-self-center">
+                </div>
 
-                    <!-- seção de informações -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center carrossel-card-combate_secao-info">
-                        <!-- hp -->
-                        <div class="d-flex flex-column justify-content-center align-content-center">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Hp</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">16</h4>
-                        </div>
-                        <!-- AC -->
-                        <div class="d-flex flex-column justify-content-center align-content-center">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Ac</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">14</h4>
-                        </div>
-                        <!-- ATk -->
-                        <div class="d-flex flex-column justify-content-center align-content-center gap-0 p-0 m-0">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Atk</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">2D6+4</h4>
-                        </div>
 
+                <!-- seção de informações -->
+                <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
+
+                    <!-- HP -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">HP</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">16</h4>
                     </div>
-                </div>
 
-                <div class="d-flex flex-column justify-content-center align-content-center log-combate align-self-center"
-                    aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
-                    <h5 class="cor-titulo m-3 p-3 text-start w-100">Log da partida</h5>
-
-                    <img src="/assets/dado-6.gif" alt="dado para o combate" class="img-dado align-self-center">
-
-                </div>
-
-                <!-- carrossel-card combate -->
-                <div
-                    class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center">
-                    <!-- imagem do personagem -->
-                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
-
-                    <!-- seção de informações -->
-                    <div class="d-flex flex-wrap justify-content-center align-content-center carrossel-card-combate_secao-info">
-                        <!-- hp -->
-                        <div class="d-flex flex-column justify-content-center align-content-center">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Hp</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">16</h4>
-                        </div>
-                        <!-- AC -->
-                        <div class="d-flex flex-column justify-content-center align-content-center">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Ac</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">14</h4>
-                        </div>
-                        <!-- ATk -->
-                        <div class="d-flex flex-column justify-content-center align-content-center gap-0 p-0 m-0">
-                            <h3 class="carrossel-card-combate-info--bg-verde">Atk</h3>
-                            <h4 class="carrossel-card-combate-info--bg-amarelo">2D6+4</h4>
-                        </div>
-
+                    <!-- AC -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">AC</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">14</h4>
                     </div>
+
+                    <!-- ATK -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">ATK</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">2D6+4</h4>
+                    </div>
+
                 </div>
 
-            </article>
-            <!-- botões -->
-            <div class="d-flex justify-content-center align-content-center">
-                <button class="btn btn-danger w-25 mx-auto d-block mt-4 p-3"
-                    aria-label="botão para atacar seu adversario" tabindex="0">
-                    <h3>Atacar</h3>
-                </button>
+            </div>
+            <!-- log de combate -->
+            <div class="d-flex flex-column justify-content-center log-combate align-self-center"
+                aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
+                <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite">Log da partida</h5>
 
-                <button class="btn btn-danger w-25 mx-auto d-block mt-4 p-3"
-                    aria-label="botão para curar seu personagem" tabindex="0">
-                    <h3>Curar</h3>
-                </button>
+                <img src="/assets/dado-20.gif" alt="dado para o combate" class="img-dado align-self-center">
 
             </div>
 
-        </section>
+            <!-- carrossel-card combate adversário-->
+            <div
+                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0">
+                <!-- imagem do personagem -->
+                <div
+                    class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-vermelho">
+                    <img src="/assets/favicon.png" alt="imagem do jogador"
+                        class="imagem-jogador align-self-center">
+                </div>
+
+
+                <!-- seção de informações -->
+                <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
+
+                    <!-- HP -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">HP</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">16</h4>
+                    </div>
+
+                    <!-- AC -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">AC</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">14</h4>
+                    </div>
+
+                    <!-- ATK -->
+                    <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+                        <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">ATK</h3>
+                        <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">2D6+4</h4>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+        <!-- botões -->
+        <div class="d-flex justify-content-center align-content-center gap-5 mt-5">
+            <!-- botão atacar -->
+            <button
+                class="btn btn-padrao btn-vermelho w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
+                aria-label="botão para curar seu personagem" tabindex="0">
+
+                <img src="/assets/btn atk mobile.png" alt="" srcset="" class="icon-botao">
+
+                <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
+                <span class="btn-padrao_texto titulo">Atacar</span>
+                <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-bottom">
+
+            </button>
+
+            <!-- botão curar -->
+            <button class="btn btn-padrao btn-verde w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
+                aria-label="botão para curar seu personagem" tabindex="0">
+
+                <img src="/assets/btn-curar-mobile.png" alt="" srcset="" class="icon-botao">
+
+                <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
+                <span class="btn-padrao_texto titulo">Curar</span>
+                <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-bottom">
+
+            </button>
+
+        </div>
 
     </main>
     <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
