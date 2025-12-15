@@ -261,7 +261,7 @@ body {
 }
 
 .carrossel-container_cards-personagens {
-    padding-left: calc(50% - 140px);
+    padding-left: calc(50% - 150px / 2);
     justify-content: center;
     align-items: center;
 }
@@ -301,6 +301,13 @@ body {
     background-repeat: no-repeat;
     min-height: 100vh;
 }
+
+/* .card-pre-jogo {
+    background-image: url('/assets/moldura.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
 
 .espada {
     max-width: 100%;
