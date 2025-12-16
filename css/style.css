@@ -170,7 +170,7 @@ body {
 
 /* conteudo do index */
 .bg-index {
-    background-image: url('/assets/img-fundo-tema-jogo.png');
+    background-image: url('/assets/img-fundo/img-fundo-tema-jogo.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -184,7 +184,7 @@ body {
 
 /* página: Selecionar os Personagens */
 .bg-selecionarPersonagens {
-    background-image: url('/assets/img-fundo-guerreiros.png');
+    background-image: url('/assets/img-fundo/img-fundo-guerreiros.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -193,7 +193,7 @@ body {
 
 /* página: Selecionar Adversarios */
 .bg-selecionarAdversarios {
-    background-image: url('/assets/img-fundo-adversarios.png');
+    background-image: url('/assets/img-fundo/img-fundo-adversarios.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -272,6 +272,11 @@ body {
     border: 3px solid #F2C14E;
 }
 
+.carrossel-card.ativo {
+    outline: 3px solid var(--amarelo);
+    transform: scale(1.03);
+}
+
 .carrossel-card--adversario {
     background: var(--vermelho);
 }
@@ -297,11 +302,15 @@ body {
 
 /* página: Com os dois oponentes */
 .bg-Oponente {
-    background-image: url('/assets/img-fundo-tema-jogo.png');
+    background-image: url('/assets/img-fundo/img-fundo-tema-jogo.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 100vh;
+}
+
+.card-pre-jogo:active {
+    border: 1px solid var(--preto);
 }
 
 /* .card-pre-jogo {
@@ -319,7 +328,7 @@ body {
 
 /* página: combate */
 .bg-combate {
-    background-image: url('/assets/img-fundo-combate.png');
+    background-image: url('/assets/img-fundo/img-fundo-combate.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;

@@ -72,11 +72,12 @@
 
             <!-- carrossel-card combate -->
             <div
-                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0">
+                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0" data-card-personagem>
                 <!-- imagem do personagem -->
+
                 <div
                     class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-verde">
-                    <img src="/assets/Asálux Lumiel.png" alt="imagem do jogador"
+                    <img src="/assets/img-personagens/Asálux Lumiel.png" alt="imagem do jogador"
                         class="imagem-jogador align-self-center">
                 </div>
 
@@ -105,12 +106,13 @@
                 </div>
 
             </div>
+            
             <!-- log de combate -->
             <div class="d-flex flex-column justify-content-center log-combate align-self-center"
                 aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
                 <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite">Log da partida</h5>
 
-                <img src="/assets/dado-20.gif" alt="dado para o combate" class="img-dado align-self-center">
+                <img src="/assets/img-dados/dado-20.gif" alt="dado para o combate" class="img-dado align-self-center">
 
             </div>
 
@@ -180,16 +182,17 @@
         </div>
 
     </main>
-    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+     <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
     <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
         <div class="mensagemTelaDeitada-texto">
-            <h1 class="cor-titulo text-center">DragonTower</h1>
-            <p>Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
+            <h1 class="cor-titulo text-center fs-1">DragonTower</h1>
+            <p class="fs-3">Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
         </div>
     </article>
 
 
     <script src="/js/funcionalidade.js"></script>
+    <script src="/js/combate.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

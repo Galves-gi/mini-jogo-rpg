@@ -24,17 +24,9 @@
             <article class="align-self-center d-flex justify-content-center align-content-center w-100 h-100">
 
                 <div class="carrossel-card card-pre-jogo carrossel-card--personagem d-flex flex-column justify-content-center align-content-center align-self-center"
-                    data-id="1" data-nome="Lyra Althea" data-classe="Arqueira" data-vida="14" data-ac="14"
-                    data-ataque-dice="2D6+4" data-ataque="Flecha Explosiva" data-dano="7">
+                    data-personagem-escolhido>
 
-                    <img src="/assets/favicon.png" alt="">
-                    <div class="w-auto m-0 p-0" style="color: var(--amarelo);">
-                        <h3 class="m-0 p-0 fs-5 text-center">DragonTower</h3>
-                        <h5 class="m-0 p-0">HP: <span>14</span></h5>
-                        <h5 class="m-0 p-0">AC: <span>14</span></h5>
-                        <h5 class="m-0 p-0">AtkDice: <span>2D6+4</span></h5>
-                        <h5 class="m-0 p-0">Atk: <span>Flecha Explosiva - 7pts</span></h5>
-                    </div>
+                    <!-- informações do personagem escolhido -->
                 </div>
 
                 <div class="d-flex flex-column justify-content-center align-content-center">
@@ -75,7 +67,6 @@
 
             </a>
 
-
             <!-- botão para mudar de página: selecionar adversario -->
             <a class="btn btn-padrao btn-verde w-25 mx-0 mt-0 mt-md-3 px-4 py-0 px-md-5 py-md-1"
                 aria-label="botão que redireciona para página adversario" role="button" tabindex="0"
@@ -91,16 +82,17 @@
 
     </main>
 
-    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+     <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
     <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
         <div class="mensagemTelaDeitada-texto">
-            <h1 class="cor-titulo text-center">DragonTower</h1>
-            <p>Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
+            <h1 class="cor-titulo text-center fs-1">DragonTower</h1>
+            <p class="fs-3">Caro usuário,<br>Para melhor experiência, coloque o celular deitado (paisagem).</p>
         </div>
     </article>
 
 
     <script src="/js/funcionalidade.js"></script>
+    <script src="/js/doisOponentes.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
