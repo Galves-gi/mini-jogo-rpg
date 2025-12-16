@@ -13,17 +13,20 @@
 </head>
 
 <body>
-    <!-- modal -->
-    <!-- Button trigger modal -->
-    <!--     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!-- modal 
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         aivar modal
-    </button> -->
+    </button> 
+    
+    -->
+
+
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-centered">
 
             <div class="modal-content bg-modal">
                 <!-- cabeçalho do modal -->
@@ -33,9 +36,9 @@
 
                 </div>
                 <!-- caixa de mensagem do modal -->
-                <div class="modal-body" aria-live="polite">
+                <div class="modal-body modal-bg-imagem" aria-live="polite">
 
-                    <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel" aria-live="polite">Mensagem do
+                    <h1 class="modal-title fs-1 text-center" id="staticBackdropLabel" aria-live="polite">Mensagem do
                         Modal</h1>
 
                     <p class="w-auto h-50 text-center">
@@ -45,16 +48,16 @@
                     </p>
                 </div>
                 <!-- botões do modal -->
-                <div class="modal-footer">
+                <div class="modal-footer m-0 border border-0">
 
-                    <button type="button" id="logPartida" class="btn btn-success btn-ver-log"
-                        aria-label="Ver log da partida" tabindex="0">Log da Partida</button>
+                    <button type="button" id="logPartida" class="btn btn-ver-log" aria-label="Ver log da partida"
+                        tabindex="0">Log da Partida</button>
 
-                    <a type="button" id="jogarDeNovo" class="btn btn-danger" href="/index.html"
+                    <a type="button" id="jogarDeNovo" class="btn btn-jogar-novo" href="/index.html"
                         aria-label="Botão para sair dessa página e ser redirecionado para a página selecionar personagens"
                         role="button" tabindex="0">Jogar De Novo</a>
 
-                    <a type="button" id="Sair" class="btn btn-dark" data-bs-dismiss="modal" href="/index.html"
+                    <a type="button" id="Sair" class="btn btn-sair" data-bs-dismiss="modal" href="/index.html"
                         aria-label="Botão para sair do jogo" role="button" tabindex="0">Sair</a>
                 </div>
 
@@ -117,8 +120,7 @@
                 <!-- imagem do personagem -->
                 <div
                     class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-vermelho">
-                    <img src="/assets/favicon.png" alt="imagem do jogador"
-                        class="imagem-jogador align-self-center">
+                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
                 </div>
 
 
@@ -149,7 +151,7 @@
 
         </article>
         <!-- botões -->
-        <div class="d-flex justify-content-center align-content-center gap-5 mt-5">
+        <div class="d-flex justify-content-center align-content-center gap-5 ">
             <!-- botão atacar -->
             <button
                 class="btn btn-padrao btn-vermelho w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
@@ -167,7 +169,7 @@
             <button class="btn btn-padrao btn-verde w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
                 aria-label="botão para curar seu personagem" tabindex="0">
 
-                <img src="/assets/btn-curar-mobile.png" alt="" srcset="" class="icon-botao">
+                <img src="/assets/btn-curar-mobile.png" alt="icone de cura" srcset="" class="icon-botao">
 
                 <img src="/assets/img-btn.svg" alt="imagem ilustrativa do botão" class="btn-padrao_img-top">
                 <span class="btn-padrao_texto titulo">Curar</span>
