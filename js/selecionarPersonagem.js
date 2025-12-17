@@ -34,7 +34,7 @@ btnIrPreJogo.addEventListener('click',()=>{
 
     localStorage.setItem('personagemSelecionado', JSON.stringify(cardPersonagemSelecionado))
 
-    window.location.href = '/pages/doisOponentes.html'
+    window.location.href = 'selecionarAdversarios.html'
 })
 
     

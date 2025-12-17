@@ -1,4 +1,6 @@
 /* mostrar no pré-jogo / dois oponentes */
+
+/* personagem / usuario */
 const cardPreJogoPersonagem = document.querySelector('[data-personagem-escolhido]')
 
 const personagemSalvo = JSON.parse(localStorage.getItem('personagemSelecionado'))

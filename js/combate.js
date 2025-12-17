@@ -1,4 +1,5 @@
 /* mostrar os cards de combate */
+/* personagem/ usuario */
 const cardCombatePersonagem = document.querySelector('[data-card-personagem]')
 
 const personagemSalvo = JSON.parse(localStorage.getItem('personagemSelecionado'))
@@ -69,3 +70,5 @@ cardCombateAdversario.innerHTML = `
 
     </div>
 `; 
+
+
