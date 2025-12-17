@@ -26,6 +26,12 @@ cardsPersonagens.forEach(cadaCard =>{
 })
 
 btnIrPreJogo.addEventListener('click',()=>{
+
+    if (!cardPersonagemSelecionado) {
+        alert('Escolhe um personagem para jogar:')
+        return
+    }
+
     localStorage.setItem('personagemSelecionado', JSON.stringify(cardPersonagemSelecionado))
 
     window.location.href = '/pages/doisOponentes.html'
