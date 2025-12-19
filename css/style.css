@@ -335,27 +335,50 @@ body {
     min-height: 100vh;
 }
 
+
 /* LOG */
 .log-combate {
-    width: 15em;
-    height: 12rem;
+    width: clamp(14rem, 90vw, 18rem);
+    height: auto;
+    max-height: clamp(15rem, 30vh, 14rem);
 
     background-color: #000;
     border-radius: 1.25rem;
+    padding: 1em;
 
-    padding: 0.8em;
+    display: flex;
+    gap: 0.5rem;
 }
 
 .log-combate h5 {
     font-size: clamp(0.8em, 0.8em + 1vw, 2.3em);
-    max-height: 5em;
+    height: 2.5em;
     overflow-y: auto;
+    padding-right: 0.3em;
 }
 
 /* Dado */
+.log-combate__img {
+    position: relative;
+}
+
 .img-dado {
     width: 100%;
-    max-width: 180px;
+    max-width: 130px;
+    display: block;
+}
+
+.log-combate__img span {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+
+    pointer-events: none;
 }
 
 /* card de combate */

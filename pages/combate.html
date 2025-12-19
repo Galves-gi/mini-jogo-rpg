@@ -71,8 +71,8 @@
         <article class="d-flex justify-content-center align-content-center w-100 h-100 gap-3">
 
             <!-- carrossel-card combate -->
-            <div
-                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0" data-card-personagem>
+            <div class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0"
+                data-card-personagem>
                 <!-- imagem do personagem -->
 
                 <div
@@ -106,19 +106,24 @@
                 </div>
 
             </div>
-            
+
             <!-- log de combate -->
             <div class="d-flex flex-column justify-content-center log-combate align-self-center"
                 aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
-                <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite">Log da partida</h5>
+                <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite" data-log-partida></h5>
 
-                <img src="/assets/img-dados/dado-20.gif" alt="dado para o combate" class="img-dado align-self-center">
+                <div class="log-combate__img d-flex justify-content-center align-items-center">
+                    <img src="/assets/img-dados/d20.png" alt="dado para o combate" class="img-dado align-self-center">
+
+                    <span data-numero-aleatorio>20</span>
+                </div>
+
 
             </div>
 
             <!-- carrossel-card combate adversário-->
-            <div
-                class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0" data-card-adversario>
+            <div class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0"
+                data-card-adversario>
                 <!-- imagem do personagem -->
                 <div
                     class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-vermelho">
@@ -157,7 +162,7 @@
             <!-- botão atacar -->
             <button
                 class="btn btn-padrao btn-vermelho w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
-                aria-label="botão para curar seu personagem" tabindex="0">
+                aria-label="botão para curar seu personagem" tabindex="0" data-btnAtacar>
 
                 <img src="/assets/btn atk mobile.png" alt="" srcset="" class="icon-botao">
 
@@ -182,7 +187,7 @@
         </div>
 
     </main>
-     <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
     <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
         <div class="mensagemTelaDeitada-texto">
             <h1 class="cor-titulo text-center fs-1">DragonTower</h1>
