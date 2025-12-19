@@ -72,3 +72,30 @@ cardCombateAdversario.innerHTML = `
 `; 
 
 
+/* resultado do dado */
+function jogarDado(dado) {
+    const regex = /(\d+)d(\d+)([+-]\d+)?/
+
+    const cadaParteDado = dado.match(regex)
+
+    if (!cadaParteDado) return null
+
+    let qtddDeDado = Number(cadaParteDado[1])
+    const faceDado = Number(cadaParteDado[2])
+    let bonusDado = Number(cadaParteDado[3] ?? 0)
+
+    //sortear
+    while (qtddDeDado > 0) {
+        const resultado = Math.floor(Math.random() * faceDado) + 1
+
+        console.log(`${resultado} resultado do Math.floor`);
+
+        bonusDado += resultado
+        qtddDeDado--
+    }
+
+    return bonusDado
+}
+
+const dado = '1d20'
+console.log(jogarDado(dado));

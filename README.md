@@ -1,109 +1,157 @@
-# Mini Jogo RPG — Turn-Based Combat (HTML/CSS/JS)
+# 🐉 Mini Jogo RPG — DragonTower
 
-Uma implementação de mini-jogo de combate por turnos com estética medieval-moderna, feita em HTML, CSS e JavaScript. O projeto consume a API DnD 5e para carregar monstros e estatísticas.
-
-**Status:** Protótipo
+![Imagem de capa do DragonTower](./assets/img-readme/capa-dragontower.png)
 
 ---
 
-## 📝 Sobre
+## 🛠️ Badges
 
-Este repositório contém um protótipo de um sistema de combate por turnos (player vs monster). O objetivo é demonstrar mecânicas de jogo (turnos, rolagem de dados, cálculo de dano) e uma UI temática.
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge\&logo=css3\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge\&logo=bootstrap\&logoColor=white)
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS\&message=EM%20DESENVOLVIMENTO\&color=GREEN\&style=for-the-badge)
 
-## Direção de Arte
+---
 
-### 2.1 Paleta de Cores
+## 📑 Índice
 
-- `#0A1A2F`
-- `#0D0D11`
-- `#003F47`
-- `#F2C14E`
-- `#740211`
+* [Descrição do projeto](#-descrição-do-projeto)
+* [Funcionalidades](#-funcionalidades)
+* [Como os usuários podem utilizá-lo](#-como-os-usuários-podem-utilizá-lo)
+* [Autores](#-autores-do-projeto)
 
-### 2.2 Tipografia
+---
 
-- **Cinzel (700 – Bold)** — usada para títulos, labels e headers.
-- **carrossel-cardo (400 – Regular)** — aplicada em textos corridos, narrativa e descrições.
+## 📘 Descrição do projeto
 
-## Arquitetura das Telas
+### Introdução
 
-### 3.1 Index (Introdução)
+**DragonTower** é um mini-jogo de RPG de combate por turnos (*player vs monster*) com estética medieval. O projeto foi desenvolvido utilizando **HTML, CSS, Bootstrap e JavaScript**, consumindo a **API DnD 5e** para obter informações dinâmicas sobre dragões.
 
-- Exibe contextualização da história.
-- Apresenta o universo e introduz o combate contra dragões.
+O objetivo principal é praticar **lógica de programação**, **manipulação do DOM**, **controle de estado com localStorage** e **consumo de API**, aplicados em um contexto de jogo.
 
-### 3.2 Seleção de Personagem
+### Status do projeto
 
-- Exibição de personagens jogáveis.
-- Seleção e carregamento das informações base (vida, ataque, defesa).
+🚧 **Em desenvolvimento** — foco atual na implementação e refinamento da lógica de combate em JavaScript.
 
-### 3.3 Seleção de Dragão
+### Link de exibição
 
-- Listagem de monstros carregados da API DnD 5e.
-- Opção de seleção manual.
-- Função de sorteio “Modo Aleatório”.
+🔗 [DragonTower](https://mini-jogo-rpg.vercel.app/)
 
-### 3.4 Tela de Combate
+---
 
-- Mecânica de turnos (Player vs. Monster).
-- Exibição de atributos: HP, ataque, defesa.
-- Sistema de rolagem de dados (d20, modificadores, dano).
-- Lógica de ataque e cálculo de dano.
-- Atualização visual (barras de vida, animações).
+## ⚙️ Funcionalidades
 
-### 3.5 Modal de Fim de Partida
+### 1️⃣ Tela Inicial (Index)
 
-- Exibe resultado (vitória/derrota).
-- Opções para reiniciar ou retornar ao menu.
+* Apresenta o título **DragonTower** com animação inicial.
+* Introduz a contextualização da história do jogo.
 
-### 3.6 Modal de Log da Partida
+![Tela inicial](./assets/img-readme/index.gif)
 
-- Registro completo das ações:
-  - Rolagens
-  - Dano aplicado
-  - Sequência dos turnos
-  - Eventos aleatórios
+---
 
-## 🚀 Tecnologias
+### 2️⃣ Seleção de Personagem
 
-- HTML5
-- CSS3
-- JavaScript (vanilla)
-- (opcional) DnD 5e API para dados de monstros
+* Exibe personagens jogáveis com atributos base:
 
-## 📁 Estrutura do Projeto (exemplo)
+  * HP
+  * ATK
+  * ATK Dice
+  * Dano
+* Armazena o personagem selecionado no **localStorage**.
 
-```
-assets/
+![Seleção de personagem](./assets/img-readme/personagem.png)
 
-css/
-  style.css
-js/
+---
 
-index.html
-README.md
-```
+### 3️⃣ Seleção de Dragão
 
-## ▶️ Como abrir (local)
+* Lista dragões carregados dinamicamente da **API DnD 5e**.
+* Exibe atributos principais dos monstros.
+* Salva o dragão escolhido no **localStorage**.
 
-1. Abra a pasta do projeto no seu computador.
-2. Abra o arquivo `index.html` ou `teste.html` no navegador.
+![Seleção de dragão](./assets/img-readme/dragao.png)
 
-No PowerShell você pode usar:
+---
 
-```powershell
-Start-Process .\teste.html
-```
+### 4️⃣ Pré-jogo
 
-ou apenas clicar duas vezes no arquivo no Explorador de Arquivos.
+* Exibe os combatentes selecionados.
+* Permite alterar personagem ou dragão antes do combate.
 
-## ✍️ Diretrizes de contribuição
+![Tela de pré-jogo](./assets/img-readme/pre-jogo.png)
 
-- Faça um fork deste repositório.
-- Crie uma branch com sua feature: `git checkout -b feature/nome-da-feature`.
-- Faça commits pequenos e claros.
-- Abra um pull request descrevendo o que foi alterado.
+---
 
-## ⚖️ Licença
+### 5️⃣ Combate por Turnos
 
-Coloque aqui a licença do projeto (ex.: MIT) ou remova esta seção se não aplicável.
+* Sistema de turnos (Player vs Dragon).
+* Exibição das informações do personagem e dragão:
+  * HP atual
+  * Ataque
+  * Dano
+* Sistema de rolagem de dados.
+* Narrador textual descrevendo cada ação.
+* Cálculo de dano baseado em atributos e dados.
+
+![Tela de combate](./assets/img-readme/combate.png)
+
+---
+
+### 6️⃣ Modal de Fim de Partida
+
+* Exibe o resultado: **vitória** ou **derrota**.
+* Opções disponíveis:
+
+  * Jogar novamente
+  * Ver log da partida
+  * Sair
+
+![Modal fim de partida](./assets/img-readme/modal.png)
+
+---
+
+### 7️⃣ Modal de Log da Partida
+
+* Registro completo do combate:
+
+  * Rolagens de dados
+  * Dano causado
+  * Ordem dos turnos
+
+![Log da partida](./assets/img-readme/log.png)
+
+---
+
+## 🚀 Como os usuários podem utilizá-lo
+
+### Instalação
+
+1. Clone este repositório:
+
+   ```bash
+   git clone (https://github.com/Galves-gi/mini-jogo-rpg)
+   ```
+
+2. Acesse a pasta do projeto:
+
+   ```bash
+   cd mini-jogo-rpg
+   ```
+
+3. Abra o arquivo `index.html` no navegador.
+
+### Outras referências
+
+* Documentação da API DnD 5e
+* MDN Web Docs (HTML, CSS e JavaScript)
+
+---
+
+## 👩‍💻 Autora do projeto
+
+* **Galves-gi**
+
+---
