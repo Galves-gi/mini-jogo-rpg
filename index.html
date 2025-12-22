@@ -14,22 +14,19 @@
 
 <body>
 
-    <!--     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-        aria-controls="offcanvasTop">só para ativar(teste)</button> -->
-
     <!-- animação de abertura -->
-    <section class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel"
-        aria-label="Animação com o nome 'DragonTower' com fundo azul escuro ">
+    <section class="offcanvas offcanvas-top animacao" tabindex="-1" id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel" aria-label="Animação com o nome 'DragonTower' com fundo azul escuro ">
 
         <div class="offcanvas-body">
 
-            <h1 class="cor-titulo text-center">DragonTower</h1>
+            <h1 class="cor-titulo text-center align-self-center">DragonTower</h1>
 
         </div>
     </section>
 
 
-    <main class="d-flex justify-content-center align-items-center vh-100 bg-index">
+    <main class="d-flex justify-content-center align-items-center vh-100 bg-tema-jogo">
 
         <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
 
@@ -65,7 +62,26 @@
 
 
     <script src="/js/funcionalidade.js"></script>
-    <script src="/js/animacao.js"></script>
+    <script>
+        /* animação inicial */
+        document.addEventListener("DOMContentLoaded", function () {
+            const offcanvas = new bootstrap.Offcanvas('#offcanvasTop')
+
+            offcanvas.show();
+
+            setTimeout(() => {
+                offcanvas.hide()
+            }, 2000)
+
+            document.getElementById('offcanvasTop').addEventListener('hidden.bs.offcanvas', function () {
+                const backdrop = document.querySelector('.offcanvas-backdrop');
+                if (backdrop) {
+                    backdrop.remove();
+                }
+            });
+
+        })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

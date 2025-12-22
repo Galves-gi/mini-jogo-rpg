@@ -20,6 +20,7 @@ cardsPersonagens.forEach(cadaCard =>{
                 atk: cadaCard.dataset.atk,
                 atkDice: cadaCard.dataset.atkDice,
                 dano: cadaCard.dataset.dano,
+                hpMax: cadaCard.dataset.hp,
         }
         console.log(cardPersonagemSelecionado);
     })

@@ -162,14 +162,13 @@ body {
 .offcanvas.offcanvas-top .offcanvas-body {
     height: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 2rem;
     background-color: var(--azul);
 }
 
 /* conteudo do index */
-.bg-index {
+.bg-tema-jogo {
     background-image: url('/assets/img-fundo/img-fundo-tema-jogo.webp');
     background-size: cover;
     background-position: center center;
@@ -177,7 +176,7 @@ body {
     min-height: 100vh;
 }
 
-.bg-index section {
+.bg-tema-jogo section {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(1px);
 }
@@ -366,6 +365,7 @@ body {
     width: 100%;
     max-width: 130px;
     display: block;
+    cursor: pointer;
 }
 
 .log-combate__img span {

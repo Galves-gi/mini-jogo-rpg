@@ -20,8 +20,6 @@
     
     -->
 
-
-
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -77,8 +75,7 @@
 
                 <div
                     class="d-flex justify-content-center align-items-center w-auto p-2 m-0 carrossel-card-combate-info--bg-verde">
-                    <img src="/assets/img-personagens/Asálux Lumiel.png" alt="imagem do jogador"
-                        class="imagem-jogador align-self-center">
+                    <img src="/assets/favicon.png" alt="imagem do jogador" class="imagem-jogador align-self-center">
                 </div>
 
 
@@ -110,10 +107,11 @@
             <!-- log de combate -->
             <div class="d-flex flex-column justify-content-center log-combate align-self-center"
                 aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
-                <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite" data-log-partida></h5>
+                <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite" data-log-partida>
+                </h5>
 
                 <div class="log-combate__img d-flex justify-content-center align-items-center">
-                    <img src="/assets/img-dados/d20.png" alt="dado para o combate" class="img-dado align-self-center">
+                    <img src="/assets/img-dados/d20.png" alt="dado para o combate" class="img-dado align-self-center" data-dado>
 
                     <span data-numero-aleatorio>20</span>
                 </div>
@@ -158,11 +156,11 @@
 
         </article>
         <!-- botões -->
-        <div class="d-flex justify-content-center align-content-center gap-5 ">
+        <div class="d-flex justify-content-center align-content-center gap-5" data-botoes-personagem>
             <!-- botão atacar -->
             <button
                 class="btn btn-padrao btn-vermelho w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
-                aria-label="botão para curar seu personagem" tabindex="0" data-btnAtacar>
+                aria-label="botão para curar seu personagem" tabindex="0" data-btnAtacar data-acao="atacar">
 
                 <img src="/assets/btn atk mobile.png" alt="" srcset="" class="icon-botao">
 
@@ -174,7 +172,7 @@
 
             <!-- botão curar -->
             <button class="btn btn-padrao btn-verde w-25 mx-0 mt-1 mt-md-3 px-4 py-0 px-md-5 py-md-1 position-relative"
-                aria-label="botão para curar seu personagem" tabindex="0">
+                aria-label="botão para curar seu personagem" tabindex="0" data-btnCurar data-acao="curar">
 
                 <img src="/assets/btn-curar-mobile.png" alt="icone de cura" srcset="" class="icon-botao">
 

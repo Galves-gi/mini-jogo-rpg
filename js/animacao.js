@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
         offcanvas.hide()
-    }, 3000)
+    }, 25000)
 
     document.getElementById('offcanvasTop').addEventListener('hidden.bs.offcanvas', function () {
         const backdrop = document.querySelector('.offcanvas-backdrop');

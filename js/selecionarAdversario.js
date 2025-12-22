@@ -42,6 +42,7 @@ async function buscarDragonsDnd() {
         return listaDragons
 
     } catch (error) {
+        alert('No momento estamos sem acesso ao servidor. Tente mais tarde!')
         console.error(error)
     }
 }
@@ -51,6 +52,8 @@ async function buscarDragonsDnd() {
 const containerDragons = document.querySelector('[data-container-dragons]')
 
 async function exibirDragons() {
+    console.log('exibiu os dragons');
+    
 
     const listaDragon = await buscarDragonsDnd()
 
