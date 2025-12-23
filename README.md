@@ -144,28 +144,27 @@ O projeto inicia realizando uma requisição para o endpoint que retorna **todos
 ```js
 fetch('https://www.dnd5eapi.co/api/monsters')
 ```
-#Detalhes de Cada Dragão
+Esse endpoint retorna uma lista genérica com diversos tipos de criaturas.
+Após receber os dados, o projeto realiza um filtro no front-end para selecionar apenas os monstros classificados como dragões.
+
+## Detalhes de Cada Dragão
 
 Depois de filtrar os dragões, o projeto faz uma nova requisição para buscar os detalhes completos de cada criatura, utilizando o index fornecido pela API:
 
 fetch(`https://www.dnd5eapi.co/api/monsters/${cadaDragon.index}`)
 
 
-#Esse endpoint retorna informações como:
+## Esse endpoint retorna informações como:
 
-Classe de Armadura (AC)
-
-Pontos de Vida (HP)
-
-Ataques e dados de ataque
-
-Dano
-
-Habilidades especiais
+- Classe de Armadura (AC)
+- Pontos de Vida (HP)
+- Ataques e dados de ataque
+- Dano
+- Habilidades especiais
 
 Esses dados alimentam diretamente o sistema de combate por turnos do jogo.
 
-#Imagens dos Dragões
+## Imagens dos Dragões
 
 As imagens dos dragões são carregadas dinamicamente utilizando o caminho retornado pela própria API:
 
