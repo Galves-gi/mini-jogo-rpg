@@ -11,9 +11,7 @@ const localPersonagem = JSON.parse(
 const localAdversario = JSON.parse(
     localStorage.getItem("adversarioSelecionado")
 )
-localStorage.setItem("turno", "personagem")
-
-let valorDado
+let dadoAtivo = true;
 
 /* mostrar os cards de combate */
 /* personagem/ usuario */
@@ -35,7 +33,7 @@ function cardCombatePersonagem() {
     <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
 
         <!-- HP -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-hppersonagem>
             <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">HP</h3>
             <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
               ${localPersonagem.hp}
@@ -51,7 +49,7 @@ function cardCombatePersonagem() {
         </div>
 
         <!-- ATK -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-atkpersonagem>
             <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">ATK</h3>
             <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
               ${localPersonagem.atkDice}
@@ -81,7 +79,7 @@ function cardCombateAdversario() {
     <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
 
         <!-- HP -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-hpadversario>
             <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">HP</h3>
             <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
               ${localAdversario.hp}
@@ -97,7 +95,7 @@ function cardCombateAdversario() {
         </div>
 
         <!-- ATK -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0">
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-atkadversario>
             <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">ATK</h3>
             <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
               ${localAdversario.atkDice}
@@ -112,6 +110,9 @@ registrarLog('Aperta no dado para iniciar partida!')
 Botoes(false)
 
 dado.addEventListener("click", () => {
+  if (!dadoAtivo) return;
+
+  dadoAtivo = false; // não deixa click no dado
   turnoPersonagem(localPersonagem, localAdversario);
 })
 
@@ -126,7 +127,24 @@ function Botoes(ativo) {
   }
 }
 
+/* alterar os cards  */
+function hpPersonagemEl() {
+  return document.querySelector('[data-hppersonagem]');
+}
 
+function atkPersonagemEl() {
+  return document.querySelector('[data-atkpersonagem]');
+}
+
+function hpAdversarioEl() {
+  return document.querySelector('[data-hpadversario]');
+}
+
+function atkAdversarioEl() {
+  return document.querySelector('[data-atkadversario]');
+}
+
+/* transforma o click em uma promise */
 function esperarAcao() {
   return new Promise((resolve) => {
 
@@ -150,36 +168,37 @@ async function turnoPersonagem(personagem, adversario) {
   await registrarLog(`Turno ${personagem.nome}`);
   await esperar(3000);
 
-  await registrarLog(`${personagem.nome} joga 1d20.`);
-  await esperar(3000);
-
-  const valorAtaque = jogarDado("1d20");
-
-  if (valorAtaque >= adversario.ac) {
     await registrarLog(
-      `${personagem.nome} acertou o AC do adversário. Atacar ou curar?`
+      `${personagem.nome}, você quer atacar ou curar?`
     );
 
     const acao = await esperarAcao();
 
     if (acao === "atacar") {
-      await registrarLog(`${personagem.nome} escolheu atacar`);
-        await esperar(3000);
+      hpAdversarioEl()?.classList.add('destacar');
+      atkPersonagemEl()?.classList.add('destacar');
+
+      await registrarLog(`${personagem.nome}, escolheu atacar ${personagem.atkDice}!`);
+      await esperar(3000);
 
       const danoDado = jogarDado(personagem.atkDice);
       const danoTotal = danoDado + Number(personagem.dano);
 
       adversario.hp -= danoTotal;
 
+      cardCombateAdversario();
       await registrarLog(
-        `${personagem.nome} tira ${danoDado} e realiza ${personagem.atk} +${personagem.dano} dano, causando ${danoTotal} de dano.`
+        `${personagem.nome}, tira ${danoDado} e realiza o ataque ${personagem.atk} +${personagem.dano} dano, causando total ${danoTotal} de dano.`
       );
-        await esperar(3000);
+      await esperar(5000);
     }
 
     if (acao === "curar") {
-      await registrarLog(`${personagem.nome} escolheu curar`);
-        await esperar(3000);
+      hpPersonagemEl()?.classList.add('destacar');
+
+      await registrarLog(`${personagem.nome}, escolheu curar`);
+
+      await esperar(3000);
 
       const cura = jogarDado("1d8");
       personagem.hp += cura;
@@ -188,72 +207,72 @@ async function turnoPersonagem(personagem, adversario) {
         personagem.hp = personagem.hpMax;
       }
 
+      cardCombatePersonagem();
       await registrarLog(
-        `${personagem.nome} se curou em ${cura} e atualizou o HP ${personagem.hp})`
+        `${personagem.nome}, se curou em ${cura} e atualizou o HP ${personagem.hp}`
       );
-        await esperar(3000);
+      await esperar(3000);
     }
 
     if (adversario.hp <= 0) {
       adversario.hp = 0;
 
-      await registrarLog(`${adversario.nome} foi derrotado!`);
-        await esperar(3000);
-
       cardCombateAdversario();
+      hpAdversarioEl()?.classList.add('destacar');
+
+      await registrarLog(`${adversario.nome} foi derrotado!`);
+      await esperar(3000);
 
       return;
     }
 
-    cardCombateAdversario();
-  } else {
-    await registrarLog(
-      `${personagem.nome} tira ${valorAtaque} e errou o ataque.`
-    );
-      await esperar(3000);
-  }
+  hpAdversarioEl()?.classList.remove('destacar');
+  atkPersonagemEl()?.classList.remove('destacar');
+  hpPersonagemEl()?.classList.remove('destacar');
 
-  cardCombateAdversario();
-
-  await registrarLog(`Turno de ${adversario.nome}`);
-    await esperar(3000);
   setTimeout(() => turnoAdversario(adversario, personagem), 3000);
 }
 
 async function turnoAdversario(adversario, personagem) {
-  Botoes(true)
-  const ataque = jogarDado("1d20");
-
-  await registrarLog(`${adversario.nome} ataca!`);
+  Botoes(false)
+  await registrarLog(`Turno de ${adversario.nome}`);
   await esperar(3000);
 
-  if (ataque >= personagem.ac) {
-    const dano = jogarDado(adversario.atkDice);
+  hpPersonagemEl()?.classList.add('destacar');
+  atkAdversarioEl()?.classList.add('destacar');
 
-    personagem.hp -= dano;
+  await registrarLog(`${adversario.nome}, escolheu atacar ${adversario.atkDice}!`);
+  await esperar(3000);
 
-    await registrarLog(
-      `${adversario.nome} tira ${dano} e causa dano.`
-    );
-    await esperar(3000);
+  const dano = jogarDado(adversario.atkDice);
+  const danoTotal = dano + Number(adversario.dano)
 
-    if (personagem.hp <= 0) {
-      personagem.hp = 0;
-      await registrarLog(`${personagem.nome} foi derrotado!`);
-      await esperar(3000);
-      cardCombatePersonagem();
-      return;
-    }
-
-    cardCombatePersonagem();
-  } else {
-    await registrarLog(`${adversario.nome} errou o ataque.`);
-    await esperar(3000);
-  }
+  personagem.hp -= danoTotal;
 
   cardCombatePersonagem();
-}
+  await registrarLog(
+    `${adversario.nome}, tira ${dano} e realiza o ataque ${adversario.atk} +${adversario.dano} dano, causando total ${danoTotal} de dano.`
+  );
+  await esperar(5000);
 
+  if (personagem.hp <= 0) {
+      personagem.hp = 0;
+
+      hpPersonagemEl()?.classList.add('destacar');
+      cardCombatePersonagem();
+
+      await registrarLog(`${personagem.nome} foi derrotado!`);
+      await esperar(3000);
+
+      return;
+  }
+
+  hpPersonagemEl()?.classList.remove('destacar');
+  atkAdversarioEl()?.classList.remove('destacar');
+  hpAdversarioEl()?.classList.remove('destacar');
+  
+  turnoPersonagem(localPersonagem, localAdversario);
+}
 
 /* resultado do dado */
 function jogarDado(dado) {
@@ -299,7 +318,6 @@ async function registrarLog(mensagem) {
 
   await new Promise((resolve) => requestAnimationFrame(resolve));
 }
-
 
 cardCombateAdversario() 
 cardCombatePersonagem()

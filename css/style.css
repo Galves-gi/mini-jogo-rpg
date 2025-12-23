@@ -77,6 +77,10 @@ body {
 }
 
 /* estilo padrão */
+.destacar {
+  border: 2px solid black;
+}
+
 .cor-titulo {
     color: var(--amarelo);
     font-family: "Cinzel", serif;
