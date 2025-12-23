@@ -13,33 +13,27 @@
 </head>
 
 <body>
-    <!-- modal 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        aivar modal
-    </button> 
-    
-    -->
 
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
 
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-bg-imagem">
 
-            <div class="modal-content bg-modal">
+            <div class="modal-content">
                 <!-- cabeçalho do modal -->
                 <div class="modal-header" style="border-bottom: 0px;">
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+                   <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ -->
                 </div>
                 <!-- caixa de mensagem do modal -->
-                <div class="modal-body modal-bg-imagem" aria-live="polite">
+                <div class="modal-body" aria-live="polite">
 
-                    <h1 class="modal-title fs-1 text-center" id="staticBackdropLabel" aria-live="polite">Mensagem do
+                    <h1 class="modal-title display-2 w-100" id="staticBackdropLabel" aria-live="polite" data-modal-titulo style="text-align: center;">Mensagem do
                         Modal</h1>
 
-                    <p class="w-auto h-50 text-center">
+                    <p class="w-auto text-center overflow-auto modal-log" data-modal-log>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime in culpa doloribus rem
                         architecto excepturi repellat vitae inventore deserunt? Possimus nostrum ipsum ducimus odio?
                         Dolores asperiores quos alias consequuntur natus.
@@ -48,15 +42,16 @@
                 <!-- botões do modal -->
                 <div class="modal-footer m-0 border border-0">
 
-                    <button type="button" id="logPartida" class="btn btn-ver-log" aria-label="Ver log da partida"
+                    <button type="button" id="logPartida" class="btn btn-ver-log" aria-label="Ver log da partida" data-btn-log-partida
                         tabindex="0">Log da Partida</button>
 
-                    <a type="button" id="jogarDeNovo" class="btn btn-jogar-novo" href="/index.html"
+                    <a type="button" id="jogarDeNovo" class="btn btn-jogar-novo" href="/pages/selecionarPersonagens.html"
                         aria-label="Botão para sair dessa página e ser redirecionado para a página selecionar personagens"
                         role="button" tabindex="0">Jogar De Novo</a>
 
-                    <a type="button" id="Sair" class="btn btn-sair" data-bs-dismiss="modal" href="/index.html"
-                        aria-label="Botão para sair do jogo" role="button" tabindex="0">Sair</a>
+                    <a type="button" id="Sair" class="btn btn-sair" href="/index.html"
+                        aria-label="Botão para sair dessa página e ser redirecionado para a página index"
+                        role="button" tabindex="0">Sair</a>
                 </div>
 
             </div>
@@ -194,8 +189,7 @@
     </article>
 
 
-    <script src="/js/funcionalidade.js"></script>
-    <script src="/js/combate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -206,6 +200,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+    <script src="/js/funcionalidade.js"></script>
+    <script src="/js/combate.js"></script>
 </body>
 
 </html>

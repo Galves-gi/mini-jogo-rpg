@@ -4,6 +4,7 @@ const combateValorDado = document.querySelector('[data-numero-aleatorio]')
 const btnAtacar = document.querySelector('[data-btnAtacar]')
 const btnCurar = document.querySelector('[data-btnCurar]')
 const containerBotoesPersonagem = document.querySelector('[data-botoes-personagem]')
+const btnLogPartida = document.querySelector("[data-btn-log-partida]");
 
 const localPersonagem = JSON.parse(
     localStorage.getItem("personagemSelecionado")
@@ -223,7 +224,8 @@ async function turnoPersonagem(personagem, adversario) {
       await registrarLog(`${adversario.nome} foi derrotado!`);
       await esperar(3000);
 
-      return;
+      abrirModal('vitoria')
+      return 
     }
 
   hpAdversarioEl()?.classList.remove('destacar');
@@ -264,13 +266,14 @@ async function turnoAdversario(adversario, personagem) {
       await registrarLog(`${personagem.nome} foi derrotado!`);
       await esperar(3000);
 
-      return;
+      abrirModal('derrota')
+      return 
   }
 
   hpPersonagemEl()?.classList.remove('destacar');
   atkAdversarioEl()?.classList.remove('destacar');
   hpAdversarioEl()?.classList.remove('destacar');
-  
+
   turnoPersonagem(localPersonagem, localAdversario);
 }
 
@@ -307,6 +310,10 @@ function esperar(ms) {
 }
 
 /* log da partida */
+document.addEventListener("DOMContentLoaded", () => {
+  localStorage.removeItem("logCombate");
+});
+
 async function registrarLog(mensagem) {
   const logs = JSON.parse(localStorage.getItem("logCombate")) || [];
 
@@ -317,6 +324,50 @@ async function registrarLog(mensagem) {
   logPartidaCombata.innerHTML = mensagem;
 
   await new Promise((resolve) => requestAnimationFrame(resolve));
+}
+
+
+/* modal da partida */
+btnLogPartida.addEventListener("click", () => {
+  abrirModal("log");
+});
+
+function abrirModal(modo) {
+  const titulo = document.querySelector("[data-modal-titulo]");
+  const corpoLog = document.querySelector("[data-modal-log]");
+
+  const logs = JSON.parse(localStorage.getItem("logCombate")) || [];
+
+  if (modo === "vitoria") {
+    titulo.textContent = "Vitória!";
+
+    corpoLog.innerHTML = `
+        A vila de Valdorin está salva! A fortaleza foi reconquistada, as tempestades cessam e as rachaduras mágicas começam a se fechar. Os dragões caíram diante de sua força — e o destino foi reescrito.
+    `;
+  }
+
+  else if (modo === "derrota") {
+    titulo.textContent = "Gamer Over";
+    titulo.className = "modal-title text-danger";
+
+    corpoLog.innerHTML = `
+        A vila de Valdorin está à beira da destruição. Os dragões tomaram a fortaleza, as tempestades se intensificam e as rachaduras mágicas se abrem sem controle. As criaturas enlouquecidas agora avançam… Sem você, não há mais esperança.
+    `;
+  }
+
+  else if (modo === "log") {
+    titulo.textContent = "📜 Log da partida";
+    titulo.className = "modal-title";
+
+    corpoLog.innerHTML = logs.length
+      ? logs.map((log, i) => `<p>${i + 1}. ${log}</p>`).join("")
+      : "<p>Nenhum evento registrado.</p>";
+  }
+
+  const modalEl = document.getElementById("staticBackdrop");
+  const modal = new bootstrap.Modal(modalEl);
+
+  modal.show();
 }
 
 cardCombateAdversario() 

@@ -78,7 +78,7 @@ body {
 
 /* estilo padrão */
 .destacar {
-  border: 2px solid black;
+    border: 2px solid black;
 }
 
 .cor-titulo {
@@ -247,21 +247,12 @@ body {
 
     aspect-ratio: 3 / 4;
     padding: 0.5em;
-    border: 3px solid black;
+    border: 3px solid none;
     border-radius: 10px;
     scroll-snap-align: start;
 
     background: var(--azul);
     cursor: pointer;
-
-
-    /*     background-image: url('/assets/moldura.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat; */
-
-    /*     border: 30px solid transparent;
-    border-image: url("/assets/seta-prox.png") 150 round; */
 
     transition: transform .25s ease;
 }
@@ -272,7 +263,7 @@ body {
 }
 
 .carrossel-card:active {
-    border: 3px solid #F2C14E;
+    border: 3px solid var(--branco);
 }
 
 .carrossel-card.ativo {
@@ -300,6 +291,26 @@ body {
     height: auto;
     object-fit: cover;
     align-self: center;
+}
+
+.carrossel-card:active {
+    border-color: #F2C14E;
+}
+
+.carrossel-card.ativo {
+    outline: 3px solid var(--amarelo);
+    transform: scale(1.03);
+}
+
+.carrossel-card--adversario {
+    background-color: var(--vermelho);
+}
+
+
+.carrossel-container_cards-personagens {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -435,13 +446,33 @@ body {
 }
 
 /* modal */
-.bg-modal {
-    border: 20px solid transparent;
 
-    background: linear-gradient(160deg,
-            #ffe7a3 0%,
-            var(--amarelo) 35%,
-            #543f10 100%);
+.modal-content {
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.modal-bg-imagem {
+    background-image: url('/assets/modal.png');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    color: white;
+    padding: 2rem;
+}
+
+.modal-log {
+    height: auto;
+    max-height: 20vh;
+    overflow-y: auto;
+    white-space: pre-line;
 }
 
 .btn-ver-log,
@@ -523,42 +554,42 @@ body {
         inset 0 3px 6px rgba(0, 0, 0, .4);
 }
 
-/* 
-.bg-modal {
-    overflow: hidden;
-    background-color: transparent;
-    background-image: url('/assets/modal.png');
-    aspect-ratio: 16 / 9;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-.modal-custom {
-    max-width: 75vw;
-    height: 85vh;
-}
-
-.modal-custom .modal-content {
-    height: 100%;
-    overflow: hidden;
-}
-
-.modal-body {
-    width: 100%;
-    height: 100%;
-    padding: 0 50px;
-} */
-
-
-
 /* desativar hover */
 @media (hover: hover) {
     /* segunda e terceira página */
 
     .carrossel-card:hover {
         transform: translateY(-4px);
+    }
+}
+
+
+@media (min-width: 800px) {
+
+    /* card escolha */
+    .carrossel-card {
+        max-width: 220px;
+        min-height: 400px;
+
+        padding: 1.5rem;
+
+        background-color: transparent;
+        background-image:
+            url('/assets/moldura.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image:
+            url('/assets/moldura.png');
+    }
+
+    /* modal */
+    .modal-content.modal-bg-imagem {
+        background-image: url('/assets/modal-desktop.png');
+
+        background-position: center top;
+
+        background-size: cover;
     }
 }
 
