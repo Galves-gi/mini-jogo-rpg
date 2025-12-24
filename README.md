@@ -96,7 +96,7 @@ O objetivo principal é praticar **lógica de programação**, **manipulação d
 * Narrador textual descrevendo cada ação.
 * Cálculo de dano baseado em atributos e dados.
 
-![Tela de combate](./assets/img-readme/combate.png)
+![Tela de combate](./assets/img-readme/combate.mp4)
 
 ---
 
