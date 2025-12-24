@@ -5,6 +5,7 @@ const btnAtacar = document.querySelector('[data-btnAtacar]')
 const btnCurar = document.querySelector('[data-btnCurar]')
 const containerBotoesPersonagem = document.querySelector('[data-botoes-personagem]')
 const btnLogPartida = document.querySelector("[data-btn-log-partida]");
+const btnJogarNovamente = document.querySelector("[data-btn-jogar-novamente]")
 
 const localPersonagem = JSON.parse(
     localStorage.getItem("personagemSelecionado")
@@ -34,9 +35,9 @@ function cardCombatePersonagem() {
     <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
 
         <!-- HP -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-hppersonagem>
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0">
             <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">HP</h3>
-            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
+            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0" data-hppersonagem>
               ${localPersonagem.hp}
             </h4>
         </div>
@@ -50,9 +51,9 @@ function cardCombatePersonagem() {
         </div>
 
         <!-- ATK -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-atkpersonagem>
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" >
             <h3 class="carrossel-card-combate-info--bg-verde p-0 m-0">ATK</h3>
-            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
+            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0" data-atkpersonagem>
               ${localPersonagem.atkDice}
             </h4>
         </div>
@@ -80,9 +81,9 @@ function cardCombateAdversario() {
     <div class="w-100 d-flex gap-1 mt-1 carrossel-card-combate_secao-info">
 
         <!-- HP -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-hpadversario>
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" >
             <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">HP</h3>
-            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
+            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0" data-hpadversario>
               ${localAdversario.hp}
             </h4>
         </div>
@@ -96,9 +97,9 @@ function cardCombateAdversario() {
         </div>
 
         <!-- ATK -->
-        <div class="flex-fill d-flex flex-column text-center p-0 m-0" data-atkadversario>
+        <div class="flex-fill d-flex flex-column text-center p-0 m-0" >
             <h3 class="carrossel-card-combate-info--bg-vermelho p-0 m-0">ATK</h3>
-            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0">
+            <h4 class="carrossel-card-combate-info--bg-amarelo p-0 m-0" data-atkadversario>
               ${localAdversario.atkDice}
             </h4>
         </div>
@@ -113,7 +114,7 @@ Botoes(false)
 dado.addEventListener("click", () => {
   if (!dadoAtivo) return;
 
-  dadoAtivo = false; // não deixa click no dado
+  dadoAtivo = false; // não deixa click no dado depois de uma 1x
   turnoPersonagem(localPersonagem, localAdversario);
 })
 
@@ -128,7 +129,9 @@ function Botoes(ativo) {
   }
 }
 
-/* alterar os cards  */
+/* alterar os cards  
+depois que o DOM gera, preciso selecionar-los
+*/
 function hpPersonagemEl() {
   return document.querySelector('[data-hppersonagem]');
 }
@@ -150,7 +153,7 @@ function esperarAcao() {
   return new Promise((resolve) => {
 
     function handler(event) {
-      const botao = event.target.closest("[data-acao]");
+      const botao = event.target.closest("[data-acao]"); // closest busca por um ancestral/ o msm elemento correspondente ao argumento
       if (!botao) return;
 
       btnAtacar.removeEventListener("click", handler);
@@ -191,14 +194,14 @@ async function turnoPersonagem(personagem, adversario) {
       await registrarLog(
         `${personagem.nome}, tira ${danoDado} e realiza o ataque ${personagem.atk} +${personagem.dano} dano, causando total ${danoTotal} de dano.`
       );
+      hpAdversarioEl()?.classList.add('destacar');
       await esperar(5000);
     }
 
     if (acao === "curar") {
-      hpPersonagemEl()?.classList.add('destacar');
 
       await registrarLog(`${personagem.nome}, escolheu curar`);
-
+      hpPersonagemEl()?.classList.add('destacar');
       await esperar(3000);
 
       const cura = jogarDado("1d8");
@@ -212,6 +215,7 @@ async function turnoPersonagem(personagem, adversario) {
       await registrarLog(
         `${personagem.nome}, se curou em ${cura} e atualizou o HP ${personagem.hp}`
       );
+      hpPersonagemEl()?.classList.add('destacar');
       await esperar(3000);
     }
 
@@ -255,6 +259,7 @@ async function turnoAdversario(adversario, personagem) {
   await registrarLog(
     `${adversario.nome}, tira ${dano} e realiza o ataque ${adversario.atk} +${adversario.dano} dano, causando total ${danoTotal} de dano.`
   );
+  hpPersonagemEl()?.classList.add('destacar');
   await esperar(5000);
 
   if (personagem.hp <= 0) {
@@ -332,9 +337,13 @@ btnLogPartida.addEventListener("click", () => {
   abrirModal("log");
 });
 
+btnJogarNovamente.addEventListener('click', ()=>{
+  window.location.reload() // recarregar a página
+})
+
 function abrirModal(modo) {
-  const titulo = document.querySelector("[data-modal-titulo]");
-  const corpoLog = document.querySelector("[data-modal-log]");
+  const titulo = document.querySelector("[data-modal-titulo]")
+  const corpoLog = document.querySelector("[data-modal-log]")
 
   const logs = JSON.parse(localStorage.getItem("logCombate")) || [];
 
@@ -348,7 +357,7 @@ function abrirModal(modo) {
 
   else if (modo === "derrota") {
     titulo.textContent = "Gamer Over";
-    titulo.className = "modal-title text-danger";
+    titulo.className = "text-danger";
 
     corpoLog.innerHTML = `
         A vila de Valdorin está à beira da destruição. Os dragões tomaram a fortaleza, as tempestades se intensificam e as rachaduras mágicas se abrem sem controle. As criaturas enlouquecidas agora avançam… Sem você, não há mais esperança.
@@ -356,8 +365,7 @@ function abrirModal(modo) {
   }
 
   else if (modo === "log") {
-    titulo.textContent = "📜 Log da partida";
-    titulo.className = "modal-title";
+    titulo.textContent = "Log da partida";
 
     corpoLog.innerHTML = logs.length
       ? logs.map((log, i) => `<p>${i + 1}. ${log}</p>`).join("")

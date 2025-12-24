@@ -96,7 +96,7 @@ O objetivo principal é praticar **lógica de programação**, **manipulação d
 * Narrador textual descrevendo cada ação.
 * Cálculo de dano baseado em atributos e dados.
 
-![Tela de combate](./assets/img-readme/combate.png)
+![Tela de combate](./assets/img-readme/combate.mp4)
 
 ---
 
@@ -123,52 +123,7 @@ O objetivo principal é praticar **lógica de programação**, **manipulação d
 
 ![Log da partida](./assets/img-readme/log.png)
 
-
-## 🔗 Consumo de Endpoints – D&D 5e API
-
-Este projeto utiliza a **[D&D 5e API](https://www.dnd5eapi.co/)** como fonte de dados para carregar informações e imagens de criaturas do universo de *Dungeons & Dragons*, com foco específico em **dragões**.
-
 ---
-
-## 📡 Endpoint Base
-
-Todos os dados são consumidos a partir do domínio base:
-
-https://www.dnd5eapi.co
----
-
-## 🐉 Listagem de Monstros
-
-O projeto inicia realizando uma requisição para o endpoint que retorna **todos os monstros disponíveis** na API:
-
-```js
-fetch('https://www.dnd5eapi.co/api/monsters')
-```
-Esse endpoint retorna uma lista genérica com diversos tipos de criaturas.
-Após receber os dados, o projeto realiza um filtro no front-end para selecionar apenas os monstros classificados como dragões.
-
-## Detalhes de Cada Dragão
-
-Depois de filtrar os dragões, o projeto faz uma nova requisição para buscar os detalhes completos de cada criatura, utilizando o index fornecido pela API:
-
-fetch(`https://www.dnd5eapi.co/api/monsters/${cadaDragon.index}`)
-
-
-## Esse endpoint retorna informações como:
-
-- Classe de Armadura (AC)
-- Pontos de Vida (HP)
-- Ataques e dados de ataque
-- Dano
-- Habilidades especiais
-
-Esses dados alimentam diretamente o sistema de combate por turnos do jogo.
-
-## Imagens dos Dragões
-
-As imagens dos dragões são carregadas dinamicamente utilizando o caminho retornado pela própria API:
-
-https://www.dnd5eapi.co${dragon.imagem}
 
 ## 🚀 Como os usuários podem utilizá-lo
 
