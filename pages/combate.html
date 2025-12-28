@@ -15,55 +15,52 @@
 <body>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!--     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+        aria-controls="offcanvasTop">Toggle top offcanvas</button> -->
 
-        <div class="modal-dialog modal-dialog-centered modal-bg-imagem">
 
-            <div class="modal-content">
-                <!-- cabeçalho do modal -->
-                <div class="modal-header" style="border-bottom: 0px;">
+    <section class="offcanvas offcanvas-top animacao" tabindex="-1" id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel" style="background-color: transparent;">
 
-                   <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
- -->
-                </div>
+        <div class="offcanvas-body" style="background-color: transparent;">
+            <div class="offcanvas-hero">
                 <!-- caixa de mensagem do modal -->
-                <div class="modal-body" aria-live="polite">
-
-                    <h1 class="modal-title display-2 w-100" id="staticBackdropLabel" aria-live="polite" data-modal-titulo style="text-align: center;">Mensagem do
+                <div class="w-auto d-flex flex-column justify-content-center align-items-center">
+                    <!-- titulo -->
+                    <h1 class="display-2 w-75 p-0 m-0" id="staticBackdropLabel" aria-live="polite" data-modal-titulo
+                        style="text-align: center;">Mensagem do
                         Modal</h1>
-
-                    <p class="w-auto text-center overflow-auto modal-log" data-modal-log>
+                    <!-- texto -->
+                    <p class="w-75 text-center overflow-auto modal-log" aria-live="polite" data-modal-log>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime in culpa doloribus rem
                         architecto excepturi repellat vitae inventore deserunt? Possimus nostrum ipsum ducimus odio?
                         Dolores asperiores quos alias consequuntur natus.
                     </p>
                 </div>
                 <!-- botões do modal -->
-                <div class="modal-footer m-0 border border-0">
+                <div class="m-0 border border-0">
 
                     <button type="button" class="btn btn-ver-log" aria-label="Ver log da partida" data-btn-log-partida
                         tabindex="0">Log da Partida</button>
 
-                    <button type="button" class="btn btn-jogar-novo"
-                        aria-label="Botão para jogar novamente a partida."
+                    <button type="button" class="btn btn-jogar-novo" aria-label="Botão para jogar novamente a partida."
                         role="button" data-btn-jogar-novamente tabindex="0">Jogar De Novo</button>
 
                     <a type="button" id="Sair" class="btn btn-sair" href="/index.html"
-                        aria-label="Botão para sair dessa página e ser redirecionado para a página index"
-                        role="button" tabindex="0">Sair</a>
+                        aria-label="Botão para sair dessa página e ser redirecionado para a página index" role="button"
+                        tabindex="0">Sair</a>
                 </div>
-
             </div>
         </div>
-    </div>
+    </section>
+
 
     <main class="d-flex flex-column justify-content-center align-items-center w-100 h-100 m-0 bg-black bg-combate">
 
-        <!-- carrossel-cards com os personagens selecionados -->
+        <!-- container com os personagens selecionados -->
         <article class="d-flex justify-content-center align-content-center w-100 h-100 gap-3">
 
-            <!-- carrossel-card combate -->
+            <!-- card de combate -->
             <div class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0"
                 data-card-personagem>
                 <!-- imagem do personagem -->
@@ -102,19 +99,20 @@
             <!-- log de combate -->
             <div class="d-flex flex-column justify-content-center log-combate align-self-center"
                 aria-live="uma caixa onde vai mostrar os dados e as mensagens de log">
+                <!-- texto que narra o combate -->
                 <h5 class="cor-titulo m-0 p-0 text-start align-self-start w-100" aria-live="polite" data-log-partida>
                 </h5>
 
                 <div class="log-combate__img d-flex justify-content-center align-items-center">
-                    <img src="/assets/img-dados/d20.png" alt="dado para o combate" class="img-dado align-self-center" data-dado>
+                    <!-- imagem do dado -->
+                    <img src="/assets/img-dados/d20.png" alt="dado para o combate" class="img-dado align-self-center" tabindex="0" role="button" aria-label="Rolar dado"
+                        data-dado>
 
                     <span data-numero-aleatorio>20</span>
                 </div>
-
-
             </div>
 
-            <!-- carrossel-card combate adversário-->
+            <!-- card combate adversário-->
             <div class="carrossel-card-combate d-flex flex-column justify-content-center align-content-center align-self-center p-0 m-0"
                 data-card-adversario>
                 <!-- imagem do personagem -->

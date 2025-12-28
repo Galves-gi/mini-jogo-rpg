@@ -20,16 +20,17 @@
 
         <div class="offcanvas-body">
 
-            <h1 class="cor-titulo text-center align-self-center">DragonTower</h1>
+            <h1 class="cor-titulo text-center align-self-center" id="dragontower"></h1>
 
         </div>
+
     </section>
 
 
     <main class="d-flex justify-content-center align-items-center vh-100 bg-tema-jogo">
 
         <section class="h-100 d-flex flex-column justify-content-center align-content-center p-1 p-md-4">
-
+            <!-- titulo -->
             <h1 class="text-center cor-titulo display-3">DragonTower</h1>
             <!-- texto -->
             <p class="text-center text-light my-3 my-md-5 px-5">
@@ -52,7 +53,7 @@
 
     </main>
 
-    <!-- Mensagem que aparece quando estiver em portrait em telas pequenas -->
+    <!-- Mensagem que aparece quando estiver em portrait/ tela vertical em telas pequenas -->
     <article id="mensagemTelaDeitada" class="mensagemTelaDeitada">
         <div class="mensagemTelaDeitada-texto">
             <h1 class="cor-titulo text-center fs-1">DragonTower</h1>
@@ -71,7 +72,7 @@
 
             setTimeout(() => {
                 offcanvas.hide()
-            }, 2000)
+            }, 4000)
 
             document.getElementById('offcanvasTop').addEventListener('hidden.bs.offcanvas', function () {
                 const backdrop = document.querySelector('.offcanvas-backdrop');

@@ -15,6 +15,18 @@ const localAdversario = JSON.parse(
 )
 let dadoAtivo = true;
 
+let audio = new Audio('/assets/musica/combate.mp3');
+
+window.addEventListener("DOMContentLoaded", () => {
+  audio.volume = 0;
+  audio.play().then(() => {
+    audio.pause();
+    audio.currentTime = 0;
+    audio.volume = 0.02; 
+  });
+});
+
+
 /* mostrar os cards de combate */
 /* personagem/ usuario */
 function cardCombatePersonagem() {
@@ -111,12 +123,25 @@ function cardCombateAdversario() {
 registrarLog('Aperta no dado para iniciar partida!')
 Botoes(false)
 
-dado.addEventListener("click", () => {
+function acionarDado() {
   if (!dadoAtivo) return;
 
-  dadoAtivo = false; // não deixa click no dado depois de uma 1x
+  dadoAtivo = false;
+  audio.play();
   turnoPersonagem(localPersonagem, localAdversario);
-})
+}
+
+dado.addEventListener("click", acionarDado);
+
+dado.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault(); 
+    acionarDado();
+    
+  }
+});
+
+
 
 /* habilitar e desabilitar os botões */
 function Botoes(ativo) {
@@ -152,20 +177,40 @@ function atkAdversarioEl() {
 function esperarAcao() {
   return new Promise((resolve) => {
 
-    function handler(event) {
-      const botao = event.target.closest("[data-acao]"); // closest busca por um ancestral/ o msm elemento correspondente ao argumento
+    function handlerClick(event) {
+      const botao = event.target.closest("[data-acao]");
       if (!botao) return;
 
-      btnAtacar.removeEventListener("click", handler);
-      btnCurar.removeEventListener("click", handler);
-
+      removerEventos();
       resolve(botao.dataset.acao);
     }
 
-    btnAtacar.addEventListener("click", handler);
-    btnCurar.addEventListener("click", handler);
+    function handlerTeclado(event) {
+      const tecla = event.key.toLowerCase();
+
+      if (tecla === "a") {
+        removerEventos();
+        resolve("atacar"); 
+      }
+
+      if (tecla === "c") {
+        removerEventos();
+        resolve("curar");
+      }
+    }
+
+    function removerEventos() {
+      btnAtacar.removeEventListener("click", handlerClick);
+      btnCurar.removeEventListener("click", handlerClick);
+      document.removeEventListener("keydown", handlerTeclado);
+    }
+
+    btnAtacar.addEventListener("click", handlerClick);
+    btnCurar.addEventListener("click", handlerClick);
+    document.addEventListener("keydown", handlerTeclado);
   });
 }
+
 
 async function turnoPersonagem(personagem, adversario) {
   Botoes(true)
@@ -342,10 +387,13 @@ btnJogarNovamente.addEventListener('click', ()=>{
 })
 
 function abrirModal(modo) {
+
   const titulo = document.querySelector("[data-modal-titulo]")
   const corpoLog = document.querySelector("[data-modal-log]")
 
   const logs = JSON.parse(localStorage.getItem("logCombate")) || [];
+
+  musica.pause();
 
   if (modo === "vitoria") {
     titulo.textContent = "Vitória!";
@@ -357,7 +405,6 @@ function abrirModal(modo) {
 
   else if (modo === "derrota") {
     titulo.textContent = "Gamer Over";
-    titulo.className = "text-danger";
 
     corpoLog.innerHTML = `
         A vila de Valdorin está à beira da destruição. Os dragões tomaram a fortaleza, as tempestades se intensificam e as rachaduras mágicas se abrem sem controle. As criaturas enlouquecidas agora avançam… Sem você, não há mais esperança.
@@ -372,10 +419,9 @@ function abrirModal(modo) {
       : "<p>Nenhum evento registrado.</p>";
   }
 
-  const modalEl = document.getElementById("staticBackdrop");
-  const modal = new bootstrap.Modal(modalEl);
-
-  modal.show();
+  const offcanvasEl = document.getElementById("offcanvasTop");
+  const offcanvas = new bootstrap.Offcanvas(offcanvasEl);
+  offcanvas.show();
 }
 
 cardCombateAdversario() 
