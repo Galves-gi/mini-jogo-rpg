@@ -17,10 +17,11 @@
 ## 📑 Índice
 
 * [Descrição do projeto](#-descrição-do-projeto)
+* [Fluxo do Jogo](#-Fluxo-do-Jogo)
 * [Funcionalidades](#-funcionalidades)
-* [Decisões Técnicas](#-Decisões Técnicas)
+* [Decisões Técnicas](#-Decisões-Técnicas)
 * [Como os usuários podem utilizá-lo](#-como-os-usuários-podem-utilizá-lo)
-* [Autores](#-autores-do-projeto)
+* [Autora](#-autores-do-projeto)
 
 ---
 
