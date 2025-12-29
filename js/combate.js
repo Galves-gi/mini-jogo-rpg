@@ -17,14 +17,14 @@ let dadoAtivo = true;
 
 let audio = new Audio('/assets/musica/combate.mp3');
 
-window.addEventListener("DOMContentLoaded", () => {
+/* window.addEventListener("DOMContentLoaded", () => {
   audio.volume = 0;
   audio.play().then(() => {
     audio.pause();
     audio.currentTime = 0;
     audio.volume = 0.02; 
   });
-});
+}); */
 
 
 /* mostrar os cards de combate */
@@ -393,7 +393,7 @@ function abrirModal(modo) {
 
   const logs = JSON.parse(localStorage.getItem("logCombate")) || [];
 
-  musica.pause();
+  audio.pause();
 
   if (modo === "vitoria") {
     titulo.textContent = "Vitória!";
